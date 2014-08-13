@@ -1,0 +1,54 @@
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% extends '::base.html.twig' %}
+
+{% block featuredcontent %}
+<div class="substrate">
+				<img src="http://projetofinal.dev/wp-content/themes/academy/images/bgs/site_bg.jpg" class="fullwidth" alt="" />			</div>
+						<div class="row">
+							<div class="page-title">
+					<h1 class="nomargin">Login</h1>
+				</div>
+				<!-- /page title -->				
+						</div>
+
+{% endblock %}
+
+{% block body %}
+<div class="row">
+	<div class="twelvecol column">
+		<div class="twelvecol column">
+			<h3>Digite seu login e senha</h3>
+				
+			<form action="{{ path("fos_user_security_check") }}" method="post">
+			    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+			    {% if error %}
+					<div class="alert">
+						<p class="alert-text">{{ error|trans }}</p>
+					</div>
+				{% endif %}
+
+			    <div class="inputLabel">
+			    	<input type="text" id="username" placeholder="digite seu email" name="_username" value="{{ last_username }}" required="required" />
+				</div>
+		 
+			    <div class="inputLabel">
+			    	<input type="password" placeholder="digite sua senha" id="password" name="_password" required="required" />
+				</div>
+
+				<div class="space">                      
+					<a href="{{ path('fos_user_resetting_request') }}" class="link-generico">Esqueci minha senha</a><br/>
+				</div>
+
+			    <input type="hidden" id="remember_me" name="_remember_me" value="on" />
+
+			    <input class="ButtonRegister" type="submit" id="_submit" name="_submit" value="Entrar">
+			</form>
+
+		</div>	
+	</div>
+</div>
+{% endblock %}
+

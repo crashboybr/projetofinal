@@ -1,0 +1,14 @@
+{% extends 'iListFrontendBundle::layout.html.twig' %}
+
+{% block body %}
+
+<div class="content-left">
+	<h3>Digite seu email e receberá uma nova senha por email</h3>
+
+	{% include "FOSUserBundle:Resetting:request_content.html.twig" %}
+                       
+</div>
+
+
+
+{% endblock body %}

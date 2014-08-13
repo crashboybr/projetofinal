@@ -1,0 +1,7 @@
+parameters:
+#    aula_frontend.example.class: Aula\FrontendBundle\Example
+
+services:
+#    aula_frontend.example:
+#        class: %aula_frontend.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

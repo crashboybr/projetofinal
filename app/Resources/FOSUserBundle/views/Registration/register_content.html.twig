@@ -1,0 +1,71 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<script type="text/javascript">
+
+$(document).ready(function () {
+
+
+
+	$("#form").validate({
+			
+
+		});
+
+});
+
+</script>
+<form action="{{ path('fos_user_registration_register') }}" id="form" {{ form_enctype(form) }} method="POST" class="new_entity_factories_free_entity_factory" novalidate>
+    	{{ form_errors(form) }}
+    	{{ form_row(form._token) }} 
+ 
+	    <div class="inputLabel">
+	    	
+	    	
+			{{ form_widget(form.name, { 'attr': {'class': 'rounder', 'placeholder': 'Nome Completo' } }) }}
+			{% if (form.name.vars.errors|length > 0) %}
+	    		<div class="alert">
+					<p class="alert-text">{{ form.name.vars.errors[0].message }}</p>
+				</div>
+	    	{% endif %}
+		</div>
+
+		<div class="inputLabel">	
+				
+			{{ form_widget(form.username, { 'attr': {'class': 'rounder', 'placeholder': 'Apelido' }}) }}
+			{% if (form.username.vars.errors|length > 0) %}
+	    		<div class="alert">
+					<p class="alert-text">{{ form.username.vars.errors[0].message }}</p>
+				</div>
+	    	{% endif %}
+		</div>
+
+		<div class="inputLabel">
+			
+			{{ form_widget(form.email, { 'attr': {'class': 'rounder', 'placeholder': form.email.vars.label }}) }}
+			{% if (form.email.vars.errors|length > 0) %}
+	    		<div class="alert">
+					<p class="alert-text">{{ form.email.vars.errors[0].message }}</p>
+				</div>
+	    	{% endif %}
+		</div>
+
+		{% for passwordField in form.plainPassword %}
+		    <div class="inputLabel">
+		    	
+		        {{ form_widget(passwordField, { 'attr': {'class': 'rounder', 'placeholder': passwordField.vars.label }}) }}
+		        {% if (passwordField.vars.errors|length > 0) %}
+	    			<div class="alert">
+						<p class="alert-text">{{ passwordField.vars.errors[0].message }}</p>
+					</div>
+	    		{% endif %}
+		        
+		        
+		    </div>
+		{% endfor %}
+
+		
+	
+
+	    <div>
+	        <input class="ButtonRegister" type="submit" value="Cadastre-se. É grátis!" />
+	    </div>
+	</form>
