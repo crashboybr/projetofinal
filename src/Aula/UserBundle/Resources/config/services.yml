@@ -1,0 +1,7 @@
+parameters:
+#    aula_user.example.class: Aula\UserBundle\Example
+
+services:
+#    aula_user.example:
+#        class: %aula_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Aula\FrontendBundle\AulaFrontendBundle(),
             new Aula\BackendBundle\AulaBackendBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Aula\UserBundle\AulaUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

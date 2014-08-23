@@ -1,0 +1,15 @@
+
+{{ form(form) }}
+
+<form action="{{ path('aula_frontend_grade_create') }}" id="form" {{ form_enctype(form_grade) }} method="POST" novalidate>
+            {{ form_errors(form_grade) }}
+            {{ form_row(form_grade._token) }} 
+
+{{ form_widget(form_grade.grade, { 'attr': {'class': 'rounder', 'placeholder': 'Nome Completo' } }) }}
+<br />
+
+{#<h3>Foto</h3>{{ form_widget(form_grade.pic, { 'attr': {'class': 'rounder', 'placeholder': 'Nome Completo' } }) }}#}
+
+{{ form_widget(form_grade.submit) }}
+
+</form>

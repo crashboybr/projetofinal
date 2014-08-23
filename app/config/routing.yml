@@ -1,6 +1,10 @@
+aula_user:
+    resource: "@AulaUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 aula_backend:
     resource: "@AulaBackendBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /admin
 
 aula_frontend:
     resource: "@AulaFrontendBundle/Resources/config/routing.yml"
@@ -24,3 +28,4 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /perfil
+

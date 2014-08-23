@@ -1,0 +1,3 @@
+aula_user_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AulaUserBundle:Default:index }

@@ -1,3 +1,8 @@
 aula_backend_homepage:
     path:     /hello/{name}
     defaults: { _controller: AulaBackendBundle:Default:index }
+
+
+AulaBackendBundle_grade:
+        resource: "@AulaBackendBundle/Resources/config/routing/grade.yml"
+        prefix:   /grade

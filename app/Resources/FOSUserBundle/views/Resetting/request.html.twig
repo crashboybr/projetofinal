@@ -1,12 +1,15 @@
-{% extends 'iListFrontendBundle::layout.html.twig' %}
+{% extends '::base.html.twig' %}
 
 {% block body %}
+<div class="row">
+	<div class="twelvecol column ">
+		<div class="content-left">
+			<h3>Digite seu email e receberá uma nova senha por email</h3>
 
-<div class="content-left">
-	<h3>Digite seu email e receberá uma nova senha por email</h3>
-
-	{% include "FOSUserBundle:Resetting:request_content.html.twig" %}
-                       
+			{% include "FOSUserBundle:Resetting:request_content.html.twig" %}
+		                       
+		</div>
+	</div>
 </div>
 
 

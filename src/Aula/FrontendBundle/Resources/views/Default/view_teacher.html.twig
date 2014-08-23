@@ -1,0 +1,168 @@
+{% extends '::base.html.twig' %}
+
+{% block cssbody %}single single-course{% endblock %}
+{% block featuredcontent %}
+<div class="substrate">
+				<img src="http://templateprojeto/wp-content/themes/academy/images/bgs/site_bg.jpg" class="fullwidth" alt="" />			</div>
+						<div class="row">
+							<div class="threecol column">
+<div class="course-preview free-course">
+	<div class="course-image">
+		<a href="http://templateprojeto/?course=home-fitness-training"><img width="420" height="420" src="{{ asset(teacher.pic) }}" class="attachment-normal wp-post-image" alt="image_49" /></a>
+				<div class="course-price product-price">
+			<div class="price-text">R$ {{ teacher.price }},00</div>
+			<div class="corner-wrap">
+				<div class="corner"></div>
+				<div class="corner-background"></div>
+			</div>			
+		</div>
+			</div>
+	<div class="course-meta">
+		<header class="course-header">
+			<h5 class="nomargin"><a href="#">{{ grade }}</a></h5>
+						<a href="#" class="author">{{ teacher.name|capitalize }}</a>
+					</header>
+				<footer class="course-footer clearfix">
+						<div class="course-users left">
+				10			</div>
+									<div class="course-rating rating-form">
+	<div data-score="4" data-readonly="true"></div>
+	</div>					</footer>
+			</div>
+</div></div>
+<div class="sixcol column">
+	<div class="course-description widget free-course">
+		<div class="widget-title">
+			<h4 class="nomargin">Descrição</h4>
+		</div>
+		<div class="widget-content">
+			<h4>Sobre o Curso</h4>
+<p>Maecenas a leo nisi. Nam pharetra imperdiet diam, ut consequat felis egestas sagittis. Donec at nunc augue, cursus iaculis libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dignissim lobortis ligula, quis fringilla justo dictum phasellus adipiscing dictum!</p>
+<h4>Sobre o Professor</h4>
+<p>Nam sem nulla, mollis ac ullamcorper in, placerat eget lectus. Suspendisse in dui eu neque suscipit imperdiet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit aliquam lobortis.</p>
+			<footer class="course-footer">
+				<form action="http://templateprojeto/?course=home-fitness-training" method="POST">
+					<a href="#" class="button medium price-button submit-button left">		
+						Agendar					</a>
+		<input type="hidden" name="course_action" value="add_user" />
+		<input type="hidden" name="user_redirect" value="230" />
+				<input type="hidden" name="course_id" value="230" />
+	<input type="hidden" name="plan_id" value="0" />	
+	<input type="hidden" name="nonce" class="nonce" value="a581eec39c" />
+	<input type="hidden" name="action" class="action" value="themex_update_course" />
+</form>			</footer>
+		</div>						
+	</div>
+</div>
+<aside class="sidebar threecol column last">
+	<div class="widget">
+	<div class="widget-title">
+		<h4 class="nomargin left">Students</h4>
+	</div>
+	<div class="widget-content clearfix">
+		<div class="users-listing clearfix">
+								<div class="user-image ">
+						<div class="bordered-image">
+							<a title="Vickie Sullivan" href="http://templateprojeto/?author=15"><img src="http://templateprojeto/wp-content/themes/academy/images/avatar.png" class="avatar" width="100" alt="" /></a>
+						</div>
+					</div>
+										<div class="user-image ">
+						<div class="bordered-image">
+							<a title="John Crandall" href="http://templateprojeto/?author=8"><img src="http://templateprojeto/wp-content/themes/academy/images/avatar.png" class="avatar" width="100" alt="" /></a>
+						</div>
+					</div>
+										<div class="user-image last">
+						<div class="bordered-image">
+							<a title="Susan Johnson" href="http://templateprojeto/?author=5"><img src="http://templateprojeto/wp-content/themes/academy/images/avatar.png" class="avatar" width="100" alt="" /></a>
+						</div>
+					</div>
+					<div class="clear"></div>					<div class="user-image ">
+						<div class="bordered-image">
+							<a title="Robert Basler" href="http://templateprojeto/?author=6"><img src="http://templateprojeto/wp-content/themes/academy/images/avatar.png" class="avatar" width="100" alt="" /></a>
+						</div>
+					</div>
+										<div class="user-image ">
+						<div class="bordered-image">
+							<a title="Helen Anderson" href="http://templateprojeto/?author=21"><img src="http://templateprojeto/wp-content/themes/academy/images/avatar.png" class="avatar" width="100" alt="" /></a>
+						</div>
+					</div>
+										<div class="user-image last">
+						<div class="bordered-image">
+							<a title="Sarah Green" href="http://templateprojeto/?author=20"><img src="http://templateprojeto/wp-content/themes/academy/images/avatar.png" class="avatar" width="100" alt="" /></a>
+						</div>
+					</div>
+					<div class="clear"></div>					<div class="user-image ">
+						<div class="bordered-image">
+							<a title="John Bergerson" href="http://templateprojeto/?author=18"><img src="http://templateprojeto/wp-content/themes/academy/images/avatar.png" class="avatar" width="100" alt="" /></a>
+						</div>
+					</div>
+										<div class="user-image ">
+						<div class="bordered-image">
+							<a title="Steph Yazzie" href="http://templateprojeto/?author=11"><img src="http://templateprojeto/wp-content/themes/academy/images/avatar.png" class="avatar" width="100" alt="" /></a>
+						</div>
+					</div>
+										<div class="user-image last">
+						<div class="bordered-image">
+							<a title="Evan Ritter" href="http://templateprojeto/?author=24"><img src="http://templateprojeto/wp-content/themes/academy/images/avatar.png" class="avatar" width="100" alt="" /></a>
+						</div>
+					</div>
+					<div class="clear"></div>		</div>
+	</div>
+</div></aside>
+						</div>
+				
+	
+{% endblock %}
+{% block body %}
+
+<div class="row"><div class="course-content clearfix popup-container">
+		<div class="fullwidth-section">
+				</div>
+		</div>
+<!-- /course content -->
+<div class="related-courses clearfix">
+<h1>Cursos Relacionados</h1>
+	<div class="courses-listing clearfix">
+	{% for teacher in related %}
+		<div class="column threecol  {% if loop.index is divisibleby(4) %}last{% endif %} ">
+			<div class="course-preview free-course">
+			<div class="course-image">
+				<a href="{{ path('aula_frontend_view_teacher', { 'id': teacher.id }) }}"><img width="420" height="420" src="{{ asset(teacher.pic) }}" class="attachment-normal wp-post-image" alt="image_45" /></a>
+				<div class="course-price product-price">
+					<div class="price-text">R$ {{ teacher.price }},00</div>
+					<div class="corner-wrap">
+							<div class="corner"></div>
+						<div class="corner-background"></div>
+					</div>			
+				</div>
+			</div>
+			<div class="course-meta">
+				<header class="course-header">
+					<h5 class="nomargin"><a href="#">{{ grade }}</a></h5>
+					<a href="{{ path('aula_frontend_view_teacher', { 'id': teacher.id }) }}" class="author">{{ teacher.name|capitalize }}</a>
+				</header>
+				<footer class="course-footer clearfix">
+					<div class="course-users left">
+					12			
+					</div>
+					<div class="course-rating rating-form">
+						<div data-score="4" data-readonly="true"></div>
+					</div>					
+				</footer>
+			</div>
+			</div>
+		</div>
+{% endfor %}
+
+						
+			<div class="clear"></div>	</div>
+</div>
+<!-- /related courses -->
+								</div>
+
+
+
+			
+	
+
+{% endblock %}

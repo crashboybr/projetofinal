@@ -27,6 +27,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         $context = $this->context;
         $request = $this->request;
 
+        if (0 === strpos($pathinfo, '/css/57b0755')) {
+            // _assetic_57b0755
+            if ($pathinfo === '/css/57b0755.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '57b0755',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_57b0755',);
+            }
+
+            // _assetic_57b0755_0
+            if ($pathinfo === '/css/57b0755_style-sell-apple_1.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '57b0755',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_57b0755_0',);
+            }
+
+        }
+
         if (0 === strpos($pathinfo, '/_')) {
             // _wdt
             if (0 === strpos($pathinfo, '/_wdt') && preg_match('#^/_wdt/(?P<token>[^/]++)$#s', $pathinfo, $matches)) {
@@ -135,9 +148,77 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // aula_backend_homepage
+        // aula_user_homepage
         if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'aula_backend_homepage')), array (  '_controller' => 'Aula\\BackendBundle\\Controller\\DefaultController::indexAction',));
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'aula_user_homepage')), array (  '_controller' => 'Aula\\UserBundle\\Controller\\DefaultController::indexAction',));
+        }
+
+        if (0 === strpos($pathinfo, '/admin')) {
+            // aula_backend_homepage
+            if (0 === strpos($pathinfo, '/admin/hello') && preg_match('#^/admin/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'aula_backend_homepage')), array (  '_controller' => 'Aula\\BackendBundle\\Controller\\DefaultController::indexAction',));
+            }
+
+            if (0 === strpos($pathinfo, '/admin/grade')) {
+                // grade
+                if (rtrim($pathinfo, '/') === '/admin/grade') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'grade');
+                    }
+
+                    return array (  '_controller' => 'Aula\\BackendBundle\\Controller\\GradeController::indexAction',  '_route' => 'grade',);
+                }
+
+                // grade_show
+                if (preg_match('#^/admin/grade/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'grade_show')), array (  '_controller' => 'Aula\\BackendBundle\\Controller\\GradeController::showAction',));
+                }
+
+                // grade_new
+                if ($pathinfo === '/admin/grade/new') {
+                    return array (  '_controller' => 'Aula\\BackendBundle\\Controller\\GradeController::newAction',  '_route' => 'grade_new',);
+                }
+
+                // grade_create
+                if ($pathinfo === '/admin/grade/create') {
+                    if ($this->context->getMethod() != 'POST') {
+                        $allow[] = 'POST';
+                        goto not_grade_create;
+                    }
+
+                    return array (  '_controller' => 'Aula\\BackendBundle\\Controller\\GradeController::createAction',  '_route' => 'grade_create',);
+                }
+                not_grade_create:
+
+                // grade_edit
+                if (preg_match('#^/admin/grade/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'grade_edit')), array (  '_controller' => 'Aula\\BackendBundle\\Controller\\GradeController::editAction',));
+                }
+
+                // grade_update
+                if (preg_match('#^/admin/grade/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                        $allow = array_merge($allow, array('POST', 'PUT'));
+                        goto not_grade_update;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'grade_update')), array (  '_controller' => 'Aula\\BackendBundle\\Controller\\GradeController::updateAction',));
+                }
+                not_grade_update:
+
+                // grade_delete
+                if (preg_match('#^/admin/grade/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                        $allow = array_merge($allow, array('POST', 'DELETE'));
+                        goto not_grade_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'grade_delete')), array (  '_controller' => 'Aula\\BackendBundle\\Controller\\GradeController::deleteAction',));
+                }
+                not_grade_delete:
+
+            }
+
         }
 
         // aula_frontend_homepage
@@ -147,6 +228,26 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             return array (  '_controller' => 'Aula\\FrontendBundle\\Controller\\DefaultController::indexAction',  '_route' => 'aula_frontend_homepage',);
+        }
+
+        // aula_frontend_register
+        if ($pathinfo === '/cadastrar') {
+            return array (  '_controller' => 'Aula\\FrontendBundle\\Controller\\DefaultController::registerAction',  '_route' => 'aula_frontend_register',);
+        }
+
+        // aula_frontend_grade_create
+        if ($pathinfo === '/salvar') {
+            return array (  '_controller' => 'Aula\\FrontendBundle\\Controller\\DefaultController::myGradeCreateAction',  '_route' => 'aula_frontend_grade_create',);
+        }
+
+        // aula_frontend_classes
+        if ($pathinfo === '/aulas') {
+            return array (  '_controller' => 'Aula\\FrontendBundle\\Controller\\DefaultController::classesAction',  '_route' => 'aula_frontend_classes',);
+        }
+
+        // aula_frontend_view_teacher
+        if (0 === strpos($pathinfo, '/professor') && preg_match('#^/professor/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'aula_frontend_view_teacher')), array (  '_controller' => 'Aula\\FrontendBundle\\Controller\\DefaultController::viewTeacherAction',));
         }
 
         if (0 === strpos($pathinfo, '/log')) {
@@ -252,7 +353,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         if (0 === strpos($pathinfo, '/reset')) {
             // fos_user_resetting_request
-            if ($pathinfo === '/reset/requestao') {
+            if ($pathinfo === '/reset/esqueci') {
                 if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                     $allow = array_merge($allow, array('GET', 'HEAD'));
                     goto not_fos_user_resetting_request;

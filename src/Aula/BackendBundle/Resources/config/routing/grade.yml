@@ -1,0 +1,30 @@
+grade:
+    path:     /
+    defaults: { _controller: "AulaBackendBundle:Grade:index" }
+
+grade_show:
+    path:     /{id}/show
+    defaults: { _controller: "AulaBackendBundle:Grade:show" }
+
+grade_new:
+    path:     /new
+    defaults: { _controller: "AulaBackendBundle:Grade:new" }
+
+grade_create:
+    path:     /create
+    defaults: { _controller: "AulaBackendBundle:Grade:create" }
+    requirements: { _method: post }
+
+grade_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AulaBackendBundle:Grade:edit" }
+
+grade_update:
+    path:     /{id}/update
+    defaults: { _controller: "AulaBackendBundle:Grade:update" }
+    requirements: { _method: post|put }
+
+grade_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AulaBackendBundle:Grade:delete" }
+    requirements: { _method: post|delete }

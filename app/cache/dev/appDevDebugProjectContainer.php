@@ -34,7 +34,10 @@ class appDevDebugProjectContainer extends Container
         $this->scopes = array('request' => 'container');
         $this->scopeChildren = array('request' => array());
         $this->methodMap = array(
-            '1068d2d843535cde3366391c4976afec8f8b41555a2e5d3452fc787d6ff28143_1' => 'get1068d2d843535cde3366391c4976afec8f8b41555a2e5d3452fc787d6ff281431Service',
+            '21a05794f6c37e36b91715049ff87b014b92c54cc94b2b42b850e9e343e512e2_1' => 'get21a05794f6c37e36b91715049ff87b014b92c54cc94b2b42b850e9e343e512e21Service',
+            '8c2616c32c52d55a25354ae5ac8cc7161f4d6f0aae1c876ef52cfac4cc8a2ed1_1' => 'get8c2616c32c52d55a25354ae5ac8cc7161f4d6f0aae1c876ef52cfac4cc8a2ed11Service',
+            '8c2616c32c52d55a25354ae5ac8cc7161f4d6f0aae1c876ef52cfac4cc8a2ed1_2' => 'get8c2616c32c52d55a25354ae5ac8cc7161f4d6f0aae1c876ef52cfac4cc8a2ed12Service',
+            '8c2616c32c52d55a25354ae5ac8cc7161f4d6f0aae1c876ef52cfac4cc8a2ed1_3' => 'get8c2616c32c52d55a25354ae5ac8cc7161f4d6f0aae1c876ef52cfac4cc8a2ed13Service',
             'annotation_reader' => 'getAnnotationReaderService',
             'assetic.asset_factory' => 'getAssetic_AssetFactoryService',
             'assetic.asset_manager' => 'getAssetic_AssetManagerService',
@@ -44,9 +47,7 @@ class appDevDebugProjectContainer extends Container
             'assetic.filter_manager' => 'getAssetic_FilterManagerService',
             'assetic.request_listener' => 'getAssetic_RequestListenerService',
             'assetic.value_supplier.default' => 'getAssetic_ValueSupplier_DefaultService',
-            'b3fee8f95c0bc6ec8fc551b228450c951af8e9ed5780e22cb37ce90b36b1b137_1' => 'getB3fee8f95c0bc6ec8fc551b228450c951af8e9ed5780e22cb37ce90b36b1b1371Service',
-            'b3fee8f95c0bc6ec8fc551b228450c951af8e9ed5780e22cb37ce90b36b1b137_2' => 'getB3fee8f95c0bc6ec8fc551b228450c951af8e9ed5780e22cb37ce90b36b1b1372Service',
-            'b3fee8f95c0bc6ec8fc551b228450c951af8e9ed5780e22cb37ce90b36b1b137_3' => 'getB3fee8f95c0bc6ec8fc551b228450c951af8e9ed5780e22cb37ce90b36b1b1373Service',
+            'aula_user.registration.form.type' => 'getAulaUser_Registration_Form_TypeService',
             'cache_clearer' => 'getCacheClearerService',
             'cache_warmer' => 'getCacheWarmerService',
             'controller_name_converter' => 'getControllerNameConverterService',
@@ -66,10 +67,14 @@ class appDevDebugProjectContainer extends Container
             'doctrine.dbal.connection_factory' => 'getDoctrine_Dbal_ConnectionFactoryService',
             'doctrine.dbal.default_connection' => 'getDoctrine_Dbal_DefaultConnectionService',
             'doctrine.dbal.logger.profiling.default' => 'getDoctrine_Dbal_Logger_Profiling_DefaultService',
+            'doctrine.orm.default_entity_listener_resolver' => 'getDoctrine_Orm_DefaultEntityListenerResolverService',
             'doctrine.orm.default_entity_manager' => 'getDoctrine_Orm_DefaultEntityManagerService',
             'doctrine.orm.default_manager_configurator' => 'getDoctrine_Orm_DefaultManagerConfiguratorService',
             'doctrine.orm.validator.unique' => 'getDoctrine_Orm_Validator_UniqueService',
             'doctrine.orm.validator_initializer' => 'getDoctrine_Orm_ValidatorInitializerService',
+            'doctrine_cache.providers.doctrine.orm.default_metadata_cache' => 'getDoctrineCache_Providers_Doctrine_Orm_DefaultMetadataCacheService',
+            'doctrine_cache.providers.doctrine.orm.default_query_cache' => 'getDoctrineCache_Providers_Doctrine_Orm_DefaultQueryCacheService',
+            'doctrine_cache.providers.doctrine.orm.default_result_cache' => 'getDoctrineCache_Providers_Doctrine_Orm_DefaultResultCacheService',
             'file_locator' => 'getFileLocatorService',
             'filesystem' => 'getFilesystemService',
             'form.csrf_provider' => 'getForm_CsrfProviderService',
@@ -272,6 +277,9 @@ class appDevDebugProjectContainer extends Container
             'console.command.sensiolabs_security_command_securitycheckercommand' => 'sensio_distribution.security_checker.command',
             'database_connection' => 'doctrine.dbal.default_connection',
             'debug.templating.engine.twig' => 'templating',
+            'doctrine.orm.default_metadata_cache' => 'doctrine_cache.providers.doctrine.orm.default_metadata_cache',
+            'doctrine.orm.default_query_cache' => 'doctrine_cache.providers.doctrine.orm.default_query_cache',
+            'doctrine.orm.default_result_cache' => 'doctrine_cache.providers.doctrine.orm.default_result_cache',
             'doctrine.orm.entity_manager' => 'doctrine.orm.default_entity_manager',
             'event_dispatcher' => 'debug.event_dispatcher',
             'fos_user.util.username_canonicalizer' => 'fos_user.util.email_canonicalizer',
@@ -288,16 +296,55 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the '1068d2d843535cde3366391c4976afec8f8b41555a2e5d3452fc787d6ff28143_1' service.
+     * Gets the '21a05794f6c37e36b91715049ff87b014b92c54cc94b2b42b850e9e343e512e2_1' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
      * @return Symfony\Component\Form\ResolvedFormTypeFactory A Symfony\Component\Form\ResolvedFormTypeFactory instance.
      */
-    protected function get1068d2d843535cde3366391c4976afec8f8b41555a2e5d3452fc787d6ff281431Service()
+    protected function get21a05794f6c37e36b91715049ff87b014b92c54cc94b2b42b850e9e343e512e21Service()
     {
-        return $this->services['1068d2d843535cde3366391c4976afec8f8b41555a2e5d3452fc787d6ff28143_1'] = new \Symfony\Component\Form\ResolvedFormTypeFactory();
+        return $this->services['21a05794f6c37e36b91715049ff87b014b92c54cc94b2b42b850e9e343e512e2_1'] = new \Symfony\Component\Form\ResolvedFormTypeFactory();
+    }
+
+    /**
+     * Gets the '8c2616c32c52d55a25354ae5ac8cc7161f4d6f0aae1c876ef52cfac4cc8a2ed1_1' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Swift_Transport_Esmtp_Auth_CramMd5Authenticator A Swift_Transport_Esmtp_Auth_CramMd5Authenticator instance.
+     */
+    protected function get8c2616c32c52d55a25354ae5ac8cc7161f4d6f0aae1c876ef52cfac4cc8a2ed11Service()
+    {
+        return $this->services['8c2616c32c52d55a25354ae5ac8cc7161f4d6f0aae1c876ef52cfac4cc8a2ed1_1'] = new \Swift_Transport_Esmtp_Auth_CramMd5Authenticator();
+    }
+
+    /**
+     * Gets the '8c2616c32c52d55a25354ae5ac8cc7161f4d6f0aae1c876ef52cfac4cc8a2ed1_2' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Swift_Transport_Esmtp_Auth_LoginAuthenticator A Swift_Transport_Esmtp_Auth_LoginAuthenticator instance.
+     */
+    protected function get8c2616c32c52d55a25354ae5ac8cc7161f4d6f0aae1c876ef52cfac4cc8a2ed12Service()
+    {
+        return $this->services['8c2616c32c52d55a25354ae5ac8cc7161f4d6f0aae1c876ef52cfac4cc8a2ed1_2'] = new \Swift_Transport_Esmtp_Auth_LoginAuthenticator();
+    }
+
+    /**
+     * Gets the '8c2616c32c52d55a25354ae5ac8cc7161f4d6f0aae1c876ef52cfac4cc8a2ed1_3' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Swift_Transport_Esmtp_Auth_PlainAuthenticator A Swift_Transport_Esmtp_Auth_PlainAuthenticator instance.
+     */
+    protected function get8c2616c32c52d55a25354ae5ac8cc7161f4d6f0aae1c876ef52cfac4cc8a2ed13Service()
+    {
+        return $this->services['8c2616c32c52d55a25354ae5ac8cc7161f4d6f0aae1c876ef52cfac4cc8a2ed1_3'] = new \Swift_Transport_Esmtp_Auth_PlainAuthenticator();
     }
 
     /**
@@ -310,7 +357,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getAnnotationReaderService()
     {
-        return $this->services['annotation_reader'] = new \Doctrine\Common\Annotations\FileCacheReader(new \Doctrine\Common\Annotations\AnnotationReader(), '/Users/bernardo/www/projetofinalsf/app/cache/dev/annotations', true);
+        return $this->services['annotation_reader'] = new \Doctrine\Common\Annotations\FileCacheReader(new \Doctrine\Common\Annotations\AnnotationReader(), '/Users/bernardo/www/projetofinal/app/cache/dev/annotations', true);
     }
 
     /**
@@ -323,9 +370,12 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getAssetic_AssetManagerService()
     {
-        $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig')), new \Assetic\Cache\ConfigCache('/Users/bernardo/www/projetofinalsf/app/cache/dev/assetic/config'), true)));
+        $a = $this->get('templating.loader');
 
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($this->get('templating.loader'), '', '/Users/bernardo/www/projetofinalsf/app/Resources/views', '/\\.[^.]+\\.twig$/'), 'twig');
+        $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig')), new \Assetic\Cache\ConfigCache('/Users/bernardo/www/projetofinal/app/cache/dev/assetic/config'), true)));
+
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'FOSUserBundle', '/Users/bernardo/www/projetofinal/app/Resources/FOSUserBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'FOSUserBundle', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, '', '/Users/bernardo/www/projetofinal/app/Resources/views', '/\\.[^.]+\\.twig$/'), 'twig');
 
         return $instance;
     }
@@ -386,42 +436,16 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the 'b3fee8f95c0bc6ec8fc551b228450c951af8e9ed5780e22cb37ce90b36b1b137_1' service.
+     * Gets the 'aula_user.registration.form.type' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return Swift_Transport_Esmtp_Auth_CramMd5Authenticator A Swift_Transport_Esmtp_Auth_CramMd5Authenticator instance.
+     * @return Aula\BackendBundle\Form\UserType A Aula\BackendBundle\Form\UserType instance.
      */
-    protected function getB3fee8f95c0bc6ec8fc551b228450c951af8e9ed5780e22cb37ce90b36b1b1371Service()
+    protected function getAulaUser_Registration_Form_TypeService()
     {
-        return $this->services['b3fee8f95c0bc6ec8fc551b228450c951af8e9ed5780e22cb37ce90b36b1b137_1'] = new \Swift_Transport_Esmtp_Auth_CramMd5Authenticator();
-    }
-
-    /**
-     * Gets the 'b3fee8f95c0bc6ec8fc551b228450c951af8e9ed5780e22cb37ce90b36b1b137_2' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return Swift_Transport_Esmtp_Auth_LoginAuthenticator A Swift_Transport_Esmtp_Auth_LoginAuthenticator instance.
-     */
-    protected function getB3fee8f95c0bc6ec8fc551b228450c951af8e9ed5780e22cb37ce90b36b1b1372Service()
-    {
-        return $this->services['b3fee8f95c0bc6ec8fc551b228450c951af8e9ed5780e22cb37ce90b36b1b137_2'] = new \Swift_Transport_Esmtp_Auth_LoginAuthenticator();
-    }
-
-    /**
-     * Gets the 'b3fee8f95c0bc6ec8fc551b228450c951af8e9ed5780e22cb37ce90b36b1b137_3' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return Swift_Transport_Esmtp_Auth_PlainAuthenticator A Swift_Transport_Esmtp_Auth_PlainAuthenticator instance.
-     */
-    protected function getB3fee8f95c0bc6ec8fc551b228450c951af8e9ed5780e22cb37ce90b36b1b1373Service()
-    {
-        return $this->services['b3fee8f95c0bc6ec8fc551b228450c951af8e9ed5780e22cb37ce90b36b1b137_3'] = new \Swift_Transport_Esmtp_Auth_PlainAuthenticator();
+        return $this->services['aula_user.registration.form.type'] = new \Aula\BackendBundle\Form\UserType('Aula\\BackendBundle\\Entity\\User');
     }
 
     /**
@@ -450,7 +474,7 @@ class appDevDebugProjectContainer extends Container
         $a = $this->get('kernel');
         $b = $this->get('templating.filename_parser');
 
-        $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, '/Users/bernardo/www/projetofinalsf/app/Resources');
+        $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, '/Users/bernardo/www/projetofinal/app/Resources');
 
         return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, $this->get('templating.locator')), 1 => new \Symfony\Bundle\AsseticBundle\CacheWarmer\AssetManagerCacheWarmer($this), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 3 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c), 4 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine'))));
     }
@@ -681,7 +705,7 @@ class appDevDebugProjectContainer extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return stdClass A stdClass instance.
+     * @return Doctrine\DBAL\Connection A Doctrine\DBAL\Connection instance.
      */
     protected function getDoctrine_Dbal_DefaultConnectionService()
     {
@@ -699,6 +723,19 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'doctrine.orm.default_entity_listener_resolver' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Doctrine\ORM\Mapping\DefaultEntityListenerResolver A Doctrine\ORM\Mapping\DefaultEntityListenerResolver instance.
+     */
+    protected function getDoctrine_Orm_DefaultEntityListenerResolverService()
+    {
+        return $this->services['doctrine.orm.default_entity_listener_resolver'] = new \Doctrine\ORM\Mapping\DefaultEntityListenerResolver();
+    }
+
+    /**
      * Gets the 'doctrine.orm.default_entity_manager' service.
      *
      * This service is shared.
@@ -708,37 +745,29 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
-        $a = new \Doctrine\Common\Cache\ArrayCache();
-        $a->setNamespace('sf2orm_default_6c171dac26af44467e5e8be0a2153def6b21b938be1d8ec3a6449daa36b1ade3');
+        $a = new \Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver(array('/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/doctrine' => 'FOS\\UserBundle\\Entity'));
+        $a->setGlobalBasename('mapping');
 
-        $b = new \Doctrine\Common\Cache\ArrayCache();
-        $b->setNamespace('sf2orm_default_6c171dac26af44467e5e8be0a2153def6b21b938be1d8ec3a6449daa36b1ade3');
+        $b = new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain();
+        $b->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($this->get('annotation_reader'), array(0 => '/Users/bernardo/www/projetofinal/src/Aula/BackendBundle/Entity')), 'Aula\\BackendBundle\\Entity');
+        $b->addDriver($a, 'FOS\\UserBundle\\Entity');
+        $b->addDriver(new \Doctrine\ORM\Mapping\Driver\XmlDriver(new \Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator(array('/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/doctrine/model' => 'FOS\\UserBundle\\Model'), '.orm.xml')), 'FOS\\UserBundle\\Model');
 
-        $c = new \Doctrine\Common\Cache\ArrayCache();
-        $c->setNamespace('sf2orm_default_6c171dac26af44467e5e8be0a2153def6b21b938be1d8ec3a6449daa36b1ade3');
+        $c = new \Doctrine\ORM\Configuration();
+        $c->setEntityNamespaces(array('AulaBackendBundle' => 'Aula\\BackendBundle\\Entity', 'FOSUserBundle' => 'FOS\\UserBundle\\Entity'));
+        $c->setMetadataCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_metadata_cache'));
+        $c->setQueryCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_query_cache'));
+        $c->setResultCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_result_cache'));
+        $c->setMetadataDriverImpl($b);
+        $c->setProxyDir('/Users/bernardo/www/projetofinal/app/cache/dev/doctrine/orm/Proxies');
+        $c->setProxyNamespace('Proxies');
+        $c->setAutoGenerateProxyClasses(true);
+        $c->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
+        $c->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
+        $c->setNamingStrategy(new \Doctrine\ORM\Mapping\DefaultNamingStrategy());
+        $c->setEntityListenerResolver($this->get('doctrine.orm.default_entity_listener_resolver'));
 
-        $d = new \Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver(array('/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/doctrine' => 'FOS\\UserBundle\\Entity'));
-        $d->setGlobalBasename('mapping');
-
-        $e = new \Doctrine\ORM\Mapping\Driver\DriverChain();
-        $e->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($this->get('annotation_reader'), array(0 => '/Users/bernardo/www/projetofinalsf/src/Aula/BackendBundle/Entity')), 'Aula\\BackendBundle\\Entity');
-        $e->addDriver($d, 'FOS\\UserBundle\\Entity');
-        $e->addDriver(new \Doctrine\ORM\Mapping\Driver\XmlDriver(new \Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator(array('/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/doctrine/model' => 'FOS\\UserBundle\\Model'), '.orm.xml')), 'FOS\\UserBundle\\Model');
-
-        $f = new \Doctrine\ORM\Configuration();
-        $f->setEntityNamespaces(array('AulaBackendBundle' => 'Aula\\BackendBundle\\Entity', 'FOSUserBundle' => 'FOS\\UserBundle\\Entity'));
-        $f->setMetadataCacheImpl($a);
-        $f->setQueryCacheImpl($b);
-        $f->setResultCacheImpl($c);
-        $f->setMetadataDriverImpl($e);
-        $f->setProxyDir('/Users/bernardo/www/projetofinalsf/app/cache/dev/doctrine/orm/Proxies');
-        $f->setProxyNamespace('Proxies');
-        $f->setAutoGenerateProxyClasses(true);
-        $f->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
-        $f->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
-        $f->setNamingStrategy(new \Doctrine\ORM\Mapping\DefaultNamingStrategy());
-
-        $this->services['doctrine.orm.default_entity_manager'] = $instance = \Doctrine\ORM\EntityManager::create($this->get('doctrine.dbal.default_connection'), $f);
+        $this->services['doctrine.orm.default_entity_manager'] = $instance = \Doctrine\ORM\EntityManager::create($this->get('doctrine.dbal.default_connection'), $c);
 
         $this->get('doctrine.orm.default_manager_configurator')->configure($instance);
 
@@ -785,6 +814,57 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'doctrine_cache.providers.doctrine.orm.default_metadata_cache' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Doctrine\Common\Cache\ArrayCache A Doctrine\Common\Cache\ArrayCache instance.
+     */
+    protected function getDoctrineCache_Providers_Doctrine_Orm_DefaultMetadataCacheService()
+    {
+        $this->services['doctrine_cache.providers.doctrine.orm.default_metadata_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
+
+        $instance->setNamespace('sf2orm_default_c4c50c765cda205eb55d61b1f7ca5793c03e98990e54d61d0d9090dba733ff1e');
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'doctrine_cache.providers.doctrine.orm.default_query_cache' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Doctrine\Common\Cache\ArrayCache A Doctrine\Common\Cache\ArrayCache instance.
+     */
+    protected function getDoctrineCache_Providers_Doctrine_Orm_DefaultQueryCacheService()
+    {
+        $this->services['doctrine_cache.providers.doctrine.orm.default_query_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
+
+        $instance->setNamespace('sf2orm_default_c4c50c765cda205eb55d61b1f7ca5793c03e98990e54d61d0d9090dba733ff1e');
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'doctrine_cache.providers.doctrine.orm.default_result_cache' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Doctrine\Common\Cache\ArrayCache A Doctrine\Common\Cache\ArrayCache instance.
+     */
+    protected function getDoctrineCache_Providers_Doctrine_Orm_DefaultResultCacheService()
+    {
+        $this->services['doctrine_cache.providers.doctrine.orm.default_result_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
+
+        $instance->setNamespace('sf2orm_default_c4c50c765cda205eb55d61b1f7ca5793c03e98990e54d61d0d9090dba733ff1e');
+
+        return $instance;
+    }
+
+    /**
      * Gets the 'file_locator' service.
      *
      * This service is shared.
@@ -794,7 +874,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getFileLocatorService()
     {
-        return $this->services['file_locator'] = new \Symfony\Component\HttpKernel\Config\FileLocator($this->get('kernel'), '/Users/bernardo/www/projetofinalsf/app/Resources');
+        return $this->services['file_locator'] = new \Symfony\Component\HttpKernel\Config\FileLocator($this->get('kernel'), '/Users/bernardo/www/projetofinal/app/Resources');
     }
 
     /**
@@ -846,7 +926,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getForm_RegistryService()
     {
-        return $this->services['form.registry'] = new \Symfony\Component\Form\FormRegistry(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('form' => 'form.type.form', 'birthday' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'collection' => 'form.type.collection', 'country' => 'form.type.country', 'date' => 'form.type.date', 'datetime' => 'form.type.datetime', 'email' => 'form.type.email', 'file' => 'form.type.file', 'hidden' => 'form.type.hidden', 'integer' => 'form.type.integer', 'language' => 'form.type.language', 'locale' => 'form.type.locale', 'money' => 'form.type.money', 'number' => 'form.type.number', 'password' => 'form.type.password', 'percent' => 'form.type.percent', 'radio' => 'form.type.radio', 'repeated' => 'form.type.repeated', 'search' => 'form.type.search', 'textarea' => 'form.type.textarea', 'text' => 'form.type.text', 'time' => 'form.type.time', 'timezone' => 'form.type.timezone', 'url' => 'form.type.url', 'button' => 'form.type.button', 'submit' => 'form.type.submit', 'reset' => 'form.type.reset', 'currency' => 'form.type.currency', 'entity' => 'form.type.entity', 'fos_user_username' => 'fos_user.username_form_type', 'fos_user_profile' => 'fos_user.profile.form.type', 'fos_user_registration' => 'fos_user.registration.form.type', 'fos_user_change_password' => 'fos_user.change_password.form.type', 'fos_user_resetting' => 'fos_user.resetting.form.type'), array('form' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.csrf', 3 => 'form.type_extension.form.data_collector'), 'repeated' => array(0 => 'form.type_extension.repeated.validator'), 'submit' => array(0 => 'form.type_extension.submit.validator')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))), $this->get('form.resolved_type_factory'));
+        return $this->services['form.registry'] = new \Symfony\Component\Form\FormRegistry(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('form' => 'form.type.form', 'birthday' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'collection' => 'form.type.collection', 'country' => 'form.type.country', 'date' => 'form.type.date', 'datetime' => 'form.type.datetime', 'email' => 'form.type.email', 'file' => 'form.type.file', 'hidden' => 'form.type.hidden', 'integer' => 'form.type.integer', 'language' => 'form.type.language', 'locale' => 'form.type.locale', 'money' => 'form.type.money', 'number' => 'form.type.number', 'password' => 'form.type.password', 'percent' => 'form.type.percent', 'radio' => 'form.type.radio', 'repeated' => 'form.type.repeated', 'search' => 'form.type.search', 'textarea' => 'form.type.textarea', 'text' => 'form.type.text', 'time' => 'form.type.time', 'timezone' => 'form.type.timezone', 'url' => 'form.type.url', 'button' => 'form.type.button', 'submit' => 'form.type.submit', 'reset' => 'form.type.reset', 'currency' => 'form.type.currency', 'entity' => 'form.type.entity', 'aula_user_registration' => 'aula_user.registration.form.type', 'fos_user_username' => 'fos_user.username_form_type', 'fos_user_profile' => 'fos_user.profile.form.type', 'fos_user_registration' => 'fos_user.registration.form.type', 'fos_user_change_password' => 'fos_user.change_password.form.type', 'fos_user_resetting' => 'fos_user.resetting.form.type'), array('form' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.csrf', 3 => 'form.type_extension.form.data_collector'), 'repeated' => array(0 => 'form.type_extension.repeated.validator'), 'submit' => array(0 => 'form.type_extension.submit.validator')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))), $this->get('form.resolved_type_factory'));
     }
 
     /**
@@ -859,7 +939,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getForm_ResolvedTypeFactoryService()
     {
-        return $this->services['form.resolved_type_factory'] = new \Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy($this->get('1068d2d843535cde3366391c4976afec8f8b41555a2e5d3452fc787d6ff28143_1'), $this->get('data_collector.form'));
+        return $this->services['form.resolved_type_factory'] = new \Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy($this->get('21a05794f6c37e36b91715049ff87b014b92c54cc94b2b42b850e9e343e512e2_1'), $this->get('data_collector.form'));
     }
 
     /**
@@ -1483,7 +1563,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getFosUser_Registration_Form_FactoryService()
     {
-        return $this->services['fos_user.registration.form.factory'] = new \FOS\UserBundle\Form\Factory\FormFactory($this->get('form.factory'), 'fos_user_registration_form', 'fos_user_registration', array(0 => 'Registration', 1 => 'Default'));
+        return $this->services['fos_user.registration.form.factory'] = new \FOS\UserBundle\Form\Factory\FormFactory($this->get('form.factory'), 'fos_user_registration_form', 'aula_user_registration', array(0 => 'Registration', 1 => 'Default'));
     }
 
     /**
@@ -1795,7 +1875,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getMonolog_Handler_MainService()
     {
-        return $this->services['monolog.handler.main'] = new \Monolog\Handler\StreamHandler('/Users/bernardo/www/projetofinalsf/app/logs/dev.log', 100, true);
+        return $this->services['monolog.handler.main'] = new \Monolog\Handler\StreamHandler('/Users/bernardo/www/projetofinal/app/logs/dev.log', 100, true);
     }
 
     /**
@@ -2009,7 +2089,7 @@ class appDevDebugProjectContainer extends Container
         $d = new \Doctrine\Bundle\DoctrineBundle\DataCollector\DoctrineDataCollector($this->get('doctrine'));
         $d->addLogger('default', $this->get('doctrine.dbal.logger.profiling.default'));
 
-        $this->services['profiler'] = $instance = new \Symfony\Component\HttpKernel\Profiler\Profiler(new \Symfony\Component\HttpKernel\Profiler\FileProfilerStorage('file:/Users/bernardo/www/projetofinalsf/app/cache/dev/profiler', '', '', 86400), $a);
+        $this->services['profiler'] = $instance = new \Symfony\Component\HttpKernel\Profiler\Profiler(new \Symfony\Component\HttpKernel\Profiler\FileProfilerStorage('file:/Users/bernardo/www/projetofinal/app/cache/dev/profiler', '', '', 86400), $a);
 
         $instance->add($c);
         $instance->add($this->get('data_collector.request'));
@@ -2107,7 +2187,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getRouterService()
     {
-        return $this->services['router'] = new \Symfony\Bundle\FrameworkBundle\Routing\Router($this, '/Users/bernardo/www/projetofinalsf/app/cache/dev/assetic/routing.yml', array('cache_dir' => '/Users/bernardo/www/projetofinalsf/app/cache/dev', 'debug' => true, 'generator_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_base_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_dumper_class' => 'Symfony\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper', 'generator_cache_class' => 'appDevUrlGenerator', 'matcher_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_base_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper', 'matcher_cache_class' => 'appDevUrlMatcher', 'strict_requirements' => true), $this->get('router.request_context', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('monolog.logger.router', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['router'] = new \Symfony\Bundle\FrameworkBundle\Routing\Router($this, '/Users/bernardo/www/projetofinal/app/cache/dev/assetic/routing.yml', array('cache_dir' => '/Users/bernardo/www/projetofinal/app/cache/dev', 'debug' => true, 'generator_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_base_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_dumper_class' => 'Symfony\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper', 'generator_cache_class' => 'appDevUrlGenerator', 'matcher_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_base_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper', 'matcher_cache_class' => 'appDevUrlMatcher', 'strict_requirements' => true), $this->get('router.request_context', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('monolog.logger.router', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /**
@@ -2225,23 +2305,20 @@ class appDevDebugProjectContainer extends Container
 
         $i = new \Symfony\Component\HttpFoundation\RequestMatcher('^/resetting');
 
-        $j = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin/');
+        $j = new \Symfony\Component\Security\Http\AccessMap();
+        $j->add($g, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
+        $j->add($h, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
+        $j->add($i, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
 
-        $k = new \Symfony\Component\Security\Http\AccessMap();
-        $k->add($g, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $k->add($h, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $k->add($i, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $k->add($j, array(0 => 'ROLE_ADMIN'), NULL);
+        $k = new \Symfony\Component\Security\Http\HttpUtils($d, $d);
 
-        $l = new \Symfony\Component\Security\Http\HttpUtils($d, $d);
+        $l = new \Symfony\Component\Security\Http\Firewall\LogoutListener($b, $k, new \Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler($k, '/'), array('csrf_parameter' => '_csrf_token', 'intention' => 'logout', 'logout_path' => '/logout'));
+        $l->addHandler(new \Symfony\Component\Security\Http\Logout\SessionLogoutHandler());
 
-        $m = new \Symfony\Component\Security\Http\Firewall\LogoutListener($b, $l, new \Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler($l, '/'), array('csrf_parameter' => '_csrf_token', 'intention' => 'logout', 'logout_path' => '/logout'));
-        $m->addHandler(new \Symfony\Component\Security\Http\Logout\SessionLogoutHandler());
+        $m = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($k, array('always_use_default_target_path' => false, 'default_target_path' => '/', 'login_path' => '/login', 'target_path_parameter' => '_target_path', 'use_referer' => false));
+        $m->setProviderKey('main');
 
-        $n = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($l, array('always_use_default_target_path' => false, 'default_target_path' => '/', 'login_path' => '/login', 'target_path_parameter' => '_target_path', 'use_referer' => false));
-        $n->setProviderKey('main');
-
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($k, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('fos_user.user_provider.username')), 'main', $a, $c), 2 => $m, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, $this->get('security.authentication.session_strategy'), $l, 'main', $n, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $l, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('check_path' => '/login_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c, $this->get('form.csrf_provider')), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '53ea5cbae6e8a', $a), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $k, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $l, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $l, '/login', false), NULL, NULL, $a));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($j, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('fos_user.user_provider.username')), 'main', $a, $c), 2 => $l, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, $this->get('security.authentication.session_strategy'), $k, 'main', $m, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $k, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('check_path' => '/login_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c, $this->get('form.csrf_provider')), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '53f8b85e2a0b2', $a), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $j, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $k, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $k, '/login', false), NULL, NULL, $a));
     }
 
     /**
@@ -2267,7 +2344,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_SecureRandomService()
     {
-        return $this->services['security.secure_random'] = new \Symfony\Component\Security\Core\Util\SecureRandom('/Users/bernardo/www/projetofinalsf/app/cache/dev/secure_random.seed', $this->get('monolog.logger.security', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['security.secure_random'] = new \Symfony\Component\Security\Core\Util\SecureRandom('/Users/bernardo/www/projetofinal/app/cache/dev/secure_random.seed', $this->get('monolog.logger.security', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /**
@@ -2319,7 +2396,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSensioDistribution_WebconfiguratorService()
     {
-        $this->services['sensio_distribution.webconfigurator'] = $instance = new \Sensio\Bundle\DistributionBundle\Configurator\Configurator('/Users/bernardo/www/projetofinalsf/app');
+        $this->services['sensio_distribution.webconfigurator'] = $instance = new \Sensio\Bundle\DistributionBundle\Configurator\Configurator('/Users/bernardo/www/projetofinal/app');
 
         $instance->addStep(new \Sensio\Bundle\DistributionBundle\Configurator\Step\DoctrineStep(), 10);
         $instance->addStep(new \Sensio\Bundle\DistributionBundle\Configurator\Step\SecretStep(), 0);
@@ -2485,7 +2562,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSession_Storage_FilesystemService()
     {
-        return $this->services['session.storage.filesystem'] = new \Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage('/Users/bernardo/www/projetofinalsf/app/cache/dev/sessions', 'MOCKSESSID', $this->get('session.storage.metadata_bag'));
+        return $this->services['session.storage.filesystem'] = new \Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage('/Users/bernardo/www/projetofinal/app/cache/dev/sessions', 'MOCKSESSID', $this->get('session.storage.metadata_bag'));
     }
 
     /**
@@ -2619,7 +2696,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSwiftmailer_Mailer_Default_Transport_RealService()
     {
-        $a = new \Swift_Transport_Esmtp_AuthHandler(array(0 => $this->get('b3fee8f95c0bc6ec8fc551b228450c951af8e9ed5780e22cb37ce90b36b1b137_1'), 1 => $this->get('b3fee8f95c0bc6ec8fc551b228450c951af8e9ed5780e22cb37ce90b36b1b137_2'), 2 => $this->get('b3fee8f95c0bc6ec8fc551b228450c951af8e9ed5780e22cb37ce90b36b1b137_3')));
+        $a = new \Swift_Transport_Esmtp_AuthHandler(array(0 => $this->get('8c2616c32c52d55a25354ae5ac8cc7161f4d6f0aae1c876ef52cfac4cc8a2ed1_1'), 1 => $this->get('8c2616c32c52d55a25354ae5ac8cc7161f4d6f0aae1c876ef52cfac4cc8a2ed1_2'), 2 => $this->get('8c2616c32c52d55a25354ae5ac8cc7161f4d6f0aae1c876ef52cfac4cc8a2ed1_3')));
         $a->setUsername(NULL);
         $a->setPassword(NULL);
         $a->setAuthMode(NULL);
@@ -2733,7 +2810,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getTemplating_Helper_CodeService()
     {
-        return $this->services['templating.helper.code'] = new \Symfony\Bundle\FrameworkBundle\Templating\Helper\CodeHelper(NULL, '/Users/bernardo/www/projetofinalsf/app', 'UTF-8');
+        return $this->services['templating.helper.code'] = new \Symfony\Bundle\FrameworkBundle\Templating\Helper\CodeHelper(NULL, '/Users/bernardo/www/projetofinal/app', 'UTF-8');
     }
 
     /**
@@ -3253,200 +3330,201 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getTranslator_DefaultService()
     {
-        $this->services['translator.default'] = $instance = new \Symfony\Bundle\FrameworkBundle\Translation\Translator($this, new \Symfony\Component\Translation\MessageSelector(), array('translation.loader.php' => array(0 => 'php'), 'translation.loader.yml' => array(0 => 'yml'), 'translation.loader.xliff' => array(0 => 'xlf', 1 => 'xliff'), 'translation.loader.po' => array(0 => 'po'), 'translation.loader.mo' => array(0 => 'mo'), 'translation.loader.qt' => array(0 => 'ts'), 'translation.loader.csv' => array(0 => 'csv'), 'translation.loader.res' => array(0 => 'res'), 'translation.loader.dat' => array(0 => 'dat'), 'translation.loader.ini' => array(0 => 'ini'), 'translation.loader.json' => array(0 => 'json')), array('cache_dir' => '/Users/bernardo/www/projetofinalsf/app/cache/dev/translations', 'debug' => true));
+        $this->services['translator.default'] = $instance = new \Symfony\Bundle\FrameworkBundle\Translation\Translator($this, new \Symfony\Component\Translation\MessageSelector(), array('translation.loader.php' => array(0 => 'php'), 'translation.loader.yml' => array(0 => 'yml'), 'translation.loader.xliff' => array(0 => 'xlf', 1 => 'xliff'), 'translation.loader.po' => array(0 => 'po'), 'translation.loader.mo' => array(0 => 'mo'), 'translation.loader.qt' => array(0 => 'ts'), 'translation.loader.csv' => array(0 => 'csv'), 'translation.loader.res' => array(0 => 'res'), 'translation.loader.dat' => array(0 => 'dat'), 'translation.loader.ini' => array(0 => 'ini'), 'translation.loader.json' => array(0 => 'json')), array('cache_dir' => '/Users/bernardo/www/projetofinal/app/cache/dev/translations', 'debug' => true));
 
         $instance->setFallbackLocales(array(0 => 'en'));
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.af.xlf', 'af', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ar.xlf', 'ar', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.bg.xlf', 'bg', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ca.xlf', 'ca', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cs.xlf', 'cs', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cy.xlf', 'cy', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.da.xlf', 'da', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.de.xlf', 'de', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.el.xlf', 'el', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.en.xlf', 'en', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.es.xlf', 'es', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.et.xlf', 'et', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.eu.xlf', 'eu', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fa.xlf', 'fa', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fi.xlf', 'fi', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fr.xlf', 'fr', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.gl.xlf', 'gl', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.he.xlf', 'he', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hr.xlf', 'hr', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hu.xlf', 'hu', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hy.xlf', 'hy', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.id.xlf', 'id', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.it.xlf', 'it', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ja.xlf', 'ja', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lb.xlf', 'lb', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lt.xlf', 'lt', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.mn.xlf', 'mn', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nb.xlf', 'nb', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nl.xlf', 'nl', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.no.xlf', 'no', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pl.xlf', 'pl', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt.xlf', 'pt', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt_BR.xlf', 'pt_BR', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ro.xlf', 'ro', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ru.xlf', 'ru', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sk.xlf', 'sk', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sl.xlf', 'sl', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sq.xlf', 'sq', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Cyrl.xlf', 'sr_Cyrl', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Latn.xlf', 'sr_Latn', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sv.xlf', 'sv', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.th.xlf', 'th', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.tr.xlf', 'tr', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.uk.xlf', 'uk', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.vi.xlf', 'vi', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_CN.xlf', 'zh_CN', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_TW.xlf', 'zh_TW', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ar.xlf', 'ar', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.bg.xlf', 'bg', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ca.xlf', 'ca', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.cs.xlf', 'cs', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.da.xlf', 'da', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.de.xlf', 'de', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.el.xlf', 'el', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.en.xlf', 'en', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.es.xlf', 'es', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.et.xlf', 'et', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.eu.xlf', 'eu', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fa.xlf', 'fa', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fi.xlf', 'fi', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fr.xlf', 'fr', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.gl.xlf', 'gl', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.he.xlf', 'he', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hr.xlf', 'hr', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hu.xlf', 'hu', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hy.xlf', 'hy', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.id.xlf', 'id', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.it.xlf', 'it', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ja.xlf', 'ja', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lb.xlf', 'lb', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lt.xlf', 'lt', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lv.xlf', 'lv', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.mn.xlf', 'mn', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.nb.xlf', 'nb', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.nl.xlf', 'nl', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pl.xlf', 'pl', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt.xlf', 'pt', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt_BR.xlf', 'pt_BR', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ro.xlf', 'ro', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ru.xlf', 'ru', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sk.xlf', 'sk', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sl.xlf', 'sl', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Cyrl.xlf', 'sr_Cyrl', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Latn.xlf', 'sr_Latn', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sv.xlf', 'sv', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.uk.xlf', 'uk', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.zh_CN.xlf', 'zh_CN', 'validators');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ar.xlf', 'ar', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ca.xlf', 'ca', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.cs.xlf', 'cs', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.da.xlf', 'da', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.de.xlf', 'de', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.el.xlf', 'el', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.en.xlf', 'en', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.es.xlf', 'es', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.fa.xlf', 'fa', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.fr.xlf', 'fr', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.gl.xlf', 'gl', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.hu.xlf', 'hu', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.it.xlf', 'it', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.lb.xlf', 'lb', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.nl.xlf', 'nl', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.no.xlf', 'no', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pl.xlf', 'pl', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pt_BR.xlf', 'pt_BR', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pt_PT.xlf', 'pt_PT', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ro.xlf', 'ro', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ru.xlf', 'ru', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sk.xlf', 'sk', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sl.xlf', 'sl', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sr_Cyrl.xlf', 'sr_Cyrl', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sr_Latn.xlf', 'sr_Latn', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sv.xlf', 'sv', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.tr.xlf', 'tr', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ua.xlf', 'ua', 'security');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/src/Aula/FrontendBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
-        $instance->addResource('xlf', '/Users/bernardo/www/projetofinalsf/src/Aula/BackendBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.ar.yml', 'ar', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.bg.yml', 'bg', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.ca.yml', 'ca', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.cs.yml', 'cs', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.da.yml', 'da', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.de.yml', 'de', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.en.yml', 'en', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.es.yml', 'es', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.et.yml', 'et', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.fa.yml', 'fa', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.fi.yml', 'fi', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.fr.yml', 'fr', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.he.yml', 'he', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.hr.yml', 'hr', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.hu.yml', 'hu', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.id.yml', 'id', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.it.yml', 'it', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.ja.yml', 'ja', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.lb.yml', 'lb', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.lt.yml', 'lt', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.lv.yml', 'lv', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.nb.yml', 'nb', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.nl.yml', 'nl', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.pl.yml', 'pl', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.pt_BR.yml', 'pt_BR', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.pt_PT.yml', 'pt_PT', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.ro.yml', 'ro', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.ru.yml', 'ru', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.sk.yml', 'sk', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.sl.yml', 'sl', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.sr_Latn.yml', 'sr_Latn', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.sv.yml', 'sv', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.th.yml', 'th', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.tr.yml', 'tr', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.uk.yml', 'uk', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.vi.yml', 'vi', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.zh_CN.yml', 'zh_CN', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.ar.yml', 'ar', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.bg.yml', 'bg', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.ca.yml', 'ca', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.cs.yml', 'cs', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.da.yml', 'da', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.de.yml', 'de', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.en.yml', 'en', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.es.yml', 'es', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.fa.yml', 'fa', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.fi.yml', 'fi', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.fr.yml', 'fr', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.he.yml', 'he', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.hr.yml', 'hr', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.hu.yml', 'hu', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.id.yml', 'id', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.it.yml', 'it', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.ja.yml', 'ja', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.lt.yml', 'lt', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.lv.yml', 'lv', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.nb.yml', 'nb', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.nl.yml', 'nl', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.pl.yml', 'pl', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.pt.yml', 'pt', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.pt_BR.yml', 'pt_BR', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.ro.yml', 'ro', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.ru.yml', 'ru', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.sk.yml', 'sk', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.sl.yml', 'sl', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.sr_Latn.yml', 'sr_Latn', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.sv.yml', 'sv', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.th.yml', 'th', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.tr.yml', 'tr', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.uk.yml', 'uk', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.vi.yml', 'vi', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.zh_CN.yml', 'zh_CN', 'validators');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/app/Resources/FOSUserBundle/translations/FOSUserBundle.pt_BR.yml', 'pt_BR', 'FOSUserBundle');
-        $instance->addResource('yml', '/Users/bernardo/www/projetofinalsf/app/Resources/FOSUserBundle/translations/validators.pt_BR.yml', 'pt_BR', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.af.xlf', 'af', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ar.xlf', 'ar', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.bg.xlf', 'bg', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ca.xlf', 'ca', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cs.xlf', 'cs', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cy.xlf', 'cy', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.da.xlf', 'da', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.de.xlf', 'de', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.el.xlf', 'el', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.en.xlf', 'en', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.es.xlf', 'es', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.et.xlf', 'et', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.eu.xlf', 'eu', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fa.xlf', 'fa', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fi.xlf', 'fi', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fr.xlf', 'fr', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.gl.xlf', 'gl', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.he.xlf', 'he', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hr.xlf', 'hr', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hu.xlf', 'hu', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hy.xlf', 'hy', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.id.xlf', 'id', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.it.xlf', 'it', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ja.xlf', 'ja', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lb.xlf', 'lb', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lt.xlf', 'lt', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.mn.xlf', 'mn', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nb.xlf', 'nb', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nl.xlf', 'nl', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.no.xlf', 'no', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pl.xlf', 'pl', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt.xlf', 'pt', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt_BR.xlf', 'pt_BR', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ro.xlf', 'ro', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ru.xlf', 'ru', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sk.xlf', 'sk', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sl.xlf', 'sl', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sq.xlf', 'sq', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Cyrl.xlf', 'sr_Cyrl', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Latn.xlf', 'sr_Latn', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sv.xlf', 'sv', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.th.xlf', 'th', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.tr.xlf', 'tr', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.uk.xlf', 'uk', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.vi.xlf', 'vi', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_CN.xlf', 'zh_CN', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_TW.xlf', 'zh_TW', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ar.xlf', 'ar', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.bg.xlf', 'bg', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ca.xlf', 'ca', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.cs.xlf', 'cs', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.da.xlf', 'da', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.de.xlf', 'de', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.el.xlf', 'el', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.en.xlf', 'en', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.es.xlf', 'es', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.et.xlf', 'et', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.eu.xlf', 'eu', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fa.xlf', 'fa', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fi.xlf', 'fi', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fr.xlf', 'fr', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.gl.xlf', 'gl', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.he.xlf', 'he', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hr.xlf', 'hr', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hu.xlf', 'hu', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hy.xlf', 'hy', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.id.xlf', 'id', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.it.xlf', 'it', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ja.xlf', 'ja', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lb.xlf', 'lb', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lt.xlf', 'lt', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lv.xlf', 'lv', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.mn.xlf', 'mn', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.nb.xlf', 'nb', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.nl.xlf', 'nl', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pl.xlf', 'pl', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt.xlf', 'pt', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt_BR.xlf', 'pt_BR', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ro.xlf', 'ro', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ru.xlf', 'ru', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sk.xlf', 'sk', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sl.xlf', 'sl', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Cyrl.xlf', 'sr_Cyrl', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Latn.xlf', 'sr_Latn', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sv.xlf', 'sv', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.uk.xlf', 'uk', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.zh_CN.xlf', 'zh_CN', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ar.xlf', 'ar', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ca.xlf', 'ca', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.cs.xlf', 'cs', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.da.xlf', 'da', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.de.xlf', 'de', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.el.xlf', 'el', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.en.xlf', 'en', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.es.xlf', 'es', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.fa.xlf', 'fa', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.fr.xlf', 'fr', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.gl.xlf', 'gl', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.hu.xlf', 'hu', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.it.xlf', 'it', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.lb.xlf', 'lb', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.nl.xlf', 'nl', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.no.xlf', 'no', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pl.xlf', 'pl', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pt_BR.xlf', 'pt_BR', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pt_PT.xlf', 'pt_PT', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ro.xlf', 'ro', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ru.xlf', 'ru', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sk.xlf', 'sk', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sl.xlf', 'sl', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sr_Cyrl.xlf', 'sr_Cyrl', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sr_Latn.xlf', 'sr_Latn', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sv.xlf', 'sv', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.tr.xlf', 'tr', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ua.xlf', 'ua', 'security');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/src/Aula/FrontendBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/src/Aula/BackendBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.ar.yml', 'ar', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.bg.yml', 'bg', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.ca.yml', 'ca', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.cs.yml', 'cs', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.da.yml', 'da', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.de.yml', 'de', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.en.yml', 'en', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.es.yml', 'es', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.et.yml', 'et', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.fa.yml', 'fa', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.fi.yml', 'fi', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.fr.yml', 'fr', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.he.yml', 'he', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.hr.yml', 'hr', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.hu.yml', 'hu', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.id.yml', 'id', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.it.yml', 'it', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.ja.yml', 'ja', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.lb.yml', 'lb', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.lt.yml', 'lt', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.lv.yml', 'lv', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.nb.yml', 'nb', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.nl.yml', 'nl', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.pl.yml', 'pl', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.pt_BR.yml', 'pt_BR', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.pt_PT.yml', 'pt_PT', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.ro.yml', 'ro', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.ru.yml', 'ru', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.sk.yml', 'sk', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.sl.yml', 'sl', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.sr_Latn.yml', 'sr_Latn', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.sv.yml', 'sv', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.th.yml', 'th', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.tr.yml', 'tr', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.uk.yml', 'uk', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.vi.yml', 'vi', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.zh_CN.yml', 'zh_CN', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.ar.yml', 'ar', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.bg.yml', 'bg', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.ca.yml', 'ca', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.cs.yml', 'cs', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.da.yml', 'da', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.de.yml', 'de', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.en.yml', 'en', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.es.yml', 'es', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.fa.yml', 'fa', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.fi.yml', 'fi', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.fr.yml', 'fr', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.he.yml', 'he', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.hr.yml', 'hr', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.hu.yml', 'hu', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.id.yml', 'id', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.it.yml', 'it', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.ja.yml', 'ja', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.lt.yml', 'lt', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.lv.yml', 'lv', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.nb.yml', 'nb', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.nl.yml', 'nl', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.pl.yml', 'pl', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.pt.yml', 'pt', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.pt_BR.yml', 'pt_BR', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.ro.yml', 'ro', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.ru.yml', 'ru', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.sk.yml', 'sk', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.sl.yml', 'sl', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.sr_Latn.yml', 'sr_Latn', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.sv.yml', 'sv', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.th.yml', 'th', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.tr.yml', 'tr', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.uk.yml', 'uk', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.vi.yml', 'vi', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.zh_CN.yml', 'zh_CN', 'validators');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/app/Resources/FOSUserBundle/translations/FOSUserBundle.pt_BR.yml', 'pt_BR', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/bernardo/www/projetofinal/app/Resources/FOSUserBundle/translations/validators.pt_BR.yml', 'pt_BR', 'validators');
+        $instance->addResource('xlf', '/Users/bernardo/www/projetofinal/src/Aula/UserBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
 
         return $instance;
     }
@@ -3461,14 +3539,14 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getTwigService()
     {
-        $this->services['twig'] = $instance = new \Twig_Environment($this->get('twig.loader'), array('debug' => true, 'strict_variables' => true, 'exception_controller' => 'twig.controller.exception:showAction', 'autoescape_service' => NULL, 'autoescape_service_method' => NULL, 'cache' => '/Users/bernardo/www/projetofinalsf/app/cache/dev/twig', 'charset' => 'UTF-8', 'paths' => array()));
+        $this->services['twig'] = $instance = new \Twig_Environment($this->get('twig.loader'), array('debug' => true, 'strict_variables' => true, 'exception_controller' => 'twig.controller.exception:showAction', 'autoescape_service' => NULL, 'autoescape_service_method' => NULL, 'cache' => '/Users/bernardo/www/projetofinal/app/cache/dev/twig', 'charset' => 'UTF-8', 'paths' => array()));
 
         $instance->addExtension(new \Symfony\Bundle\SecurityBundle\Twig\Extension\LogoutUrlExtension($this->get('templating.helper.logout_url')));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\SecurityExtension($this->get('security.context', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\TranslationExtension($this->get('translator.default')));
         $instance->addExtension(new \Symfony\Bundle\TwigBundle\Extension\AssetsExtension($this, $this->get('router.request_context')));
         $instance->addExtension(new \Symfony\Bundle\TwigBundle\Extension\ActionsExtension($this));
-        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\CodeExtension(NULL, '/Users/bernardo/www/projetofinalsf/app', 'UTF-8'));
+        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\CodeExtension(NULL, '/Users/bernardo/www/projetofinal/app', 'UTF-8'));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\RoutingExtension($this->get('router')));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\YamlExtension());
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\StopwatchExtension($this->get('debug.stopwatch', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
@@ -3476,7 +3554,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\HttpKernelExtension($this->get('fragment.handler')));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\FormExtension(new \Symfony\Bridge\Twig\Form\TwigRenderer(new \Symfony\Bridge\Twig\Form\TwigRendererEngine(array(0 => 'form_div_layout.html.twig')), $this->get('form.csrf_provider', ContainerInterface::NULL_ON_INVALID_REFERENCE))));
         $instance->addExtension(new \Twig_Extension_Debug());
-        $instance->addExtension(new \Symfony\Bundle\AsseticBundle\Twig\AsseticExtension($this->get('assetic.asset_factory'), $this->get('templating.name_parser'), true, array(), array(), $this->get('assetic.value_supplier.default', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
+        $instance->addExtension(new \Symfony\Bundle\AsseticBundle\Twig\AsseticExtension($this->get('assetic.asset_factory'), $this->get('templating.name_parser'), true, array(), array(0 => 'FOSUserBundle'), $this->get('assetic.value_supplier.default', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
         $instance->addExtension(new \Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension());
         $instance->addExtension(new \Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension());
         $instance->addGlobal('app', $this->get('templating.globals'));
@@ -3522,19 +3600,20 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['twig.loader'] = $instance = new \Symfony\Bundle\TwigBundle\Loader\FilesystemLoader($this->get('templating.locator'), $this->get('templating.name_parser'));
 
-        $instance->addPath('/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views', 'Framework');
-        $instance->addPath('/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views', 'Security');
-        $instance->addPath('/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views', 'Twig');
-        $instance->addPath('/Users/bernardo/www/projetofinalsf/vendor/symfony/swiftmailer-bundle/Symfony/Bundle/SwiftmailerBundle/Resources/views', 'Swiftmailer');
-        $instance->addPath('/Users/bernardo/www/projetofinalsf/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views', 'Doctrine');
-        $instance->addPath('/Users/bernardo/www/projetofinalsf/src/Aula/FrontendBundle/Resources/views', 'AulaFrontend');
-        $instance->addPath('/Users/bernardo/www/projetofinalsf/src/Aula/BackendBundle/Resources/views', 'AulaBackend');
-        $instance->addPath('/Users/bernardo/www/projetofinalsf/app/Resources/FOSUserBundle/views', 'FOSUser');
-        $instance->addPath('/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views', 'FOSUser');
-        $instance->addPath('/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views', 'WebProfiler');
-        $instance->addPath('/Users/bernardo/www/projetofinalsf/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views', 'SensioDistribution');
-        $instance->addPath('/Users/bernardo/www/projetofinalsf/app/Resources/views');
-        $instance->addPath('/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form');
+        $instance->addPath('/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views', 'Framework');
+        $instance->addPath('/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views', 'Security');
+        $instance->addPath('/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views', 'Twig');
+        $instance->addPath('/Users/bernardo/www/projetofinal/vendor/symfony/swiftmailer-bundle/Symfony/Bundle/SwiftmailerBundle/Resources/views', 'Swiftmailer');
+        $instance->addPath('/Users/bernardo/www/projetofinal/vendor/doctrine/doctrine-bundle/Resources/views', 'Doctrine');
+        $instance->addPath('/Users/bernardo/www/projetofinal/src/Aula/FrontendBundle/Resources/views', 'AulaFrontend');
+        $instance->addPath('/Users/bernardo/www/projetofinal/src/Aula/BackendBundle/Resources/views', 'AulaBackend');
+        $instance->addPath('/Users/bernardo/www/projetofinal/app/Resources/FOSUserBundle/views', 'FOSUser');
+        $instance->addPath('/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views', 'FOSUser');
+        $instance->addPath('/Users/bernardo/www/projetofinal/src/Aula/UserBundle/Resources/views', 'AulaUser');
+        $instance->addPath('/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views', 'WebProfiler');
+        $instance->addPath('/Users/bernardo/www/projetofinal/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views', 'SensioDistribution');
+        $instance->addPath('/Users/bernardo/www/projetofinal/app/Resources/views');
+        $instance->addPath('/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form');
 
         return $instance;
     }
@@ -3593,11 +3672,11 @@ class appDevDebugProjectContainer extends Container
         $instance->setConstraintValidatorFactory(new \Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory($this, array('validator.expression' => 'validator.expression', 'Symfony\\Component\\Validator\\Constraints\\EmailValidator' => 'validator.email', 'security.validator.user_password' => 'security.validator.user_password', 'doctrine.orm.validator.unique' => 'doctrine.orm.validator.unique')));
         $instance->setTranslator($this->get('translator.default'));
         $instance->setTranslationDomain('validators');
-        $instance->addXmlMappings(array(0 => '/Users/bernardo/www/projetofinalsf/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml', 1 => '/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/validation.xml'));
+        $instance->addXmlMappings(array(0 => '/Users/bernardo/www/projetofinal/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml', 1 => '/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/validation.xml'));
         $instance->enableAnnotationMapping($this->get('annotation_reader'));
         $instance->addMethodMapping('loadValidatorMetadata');
         $instance->addObjectInitializers(array(0 => $this->get('doctrine.orm.validator_initializer'), 1 => new \FOS\UserBundle\Validator\Initializer($this->get('fos_user.user_manager'))));
-        $instance->addXmlMapping('/Users/bernardo/www/projetofinalsf/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/DependencyInjection/Compiler/../../Resources/config/validation/orm.xml');
+        $instance->addXmlMapping('/Users/bernardo/www/projetofinal/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/DependencyInjection/Compiler/../../Resources/config/validation/orm.xml');
 
         return $instance;
     }
@@ -3651,7 +3730,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getWebProfiler_Controller_ProfilerService()
     {
-        return $this->services['web_profiler.controller.profiler'] = new \Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController($this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('profiler', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('twig'), array('data_collector.config' => array(0 => 'config', 1 => '@WebProfiler/Collector/config.html.twig'), 'data_collector.request' => array(0 => 'request', 1 => '@WebProfiler/Collector/request.html.twig'), 'data_collector.exception' => array(0 => 'exception', 1 => '@WebProfiler/Collector/exception.html.twig'), 'data_collector.events' => array(0 => 'events', 1 => '@WebProfiler/Collector/events.html.twig'), 'data_collector.logger' => array(0 => 'logger', 1 => '@WebProfiler/Collector/logger.html.twig'), 'data_collector.time' => array(0 => 'time', 1 => '@WebProfiler/Collector/time.html.twig'), 'data_collector.memory' => array(0 => 'memory', 1 => '@WebProfiler/Collector/memory.html.twig'), 'data_collector.router' => array(0 => 'router', 1 => '@WebProfiler/Collector/router.html.twig'), 'data_collector.form' => array(0 => 'form', 1 => '@WebProfiler/Collector/form.html.twig'), 'data_collector.security' => array(0 => 'security', 1 => '@Security/Collector/security.html.twig'), 'swiftmailer.data_collector' => array(0 => 'swiftmailer', 1 => '@Swiftmailer/Collector/swiftmailer.html.twig'), 'data_collector.doctrine' => array(0 => 'db', 1 => 'DoctrineBundle:Collector:db')), 'bottom');
+        return $this->services['web_profiler.controller.profiler'] = new \Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController($this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('profiler', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('twig'), array('data_collector.config' => array(0 => 'config', 1 => '@WebProfiler/Collector/config.html.twig'), 'data_collector.request' => array(0 => 'request', 1 => '@WebProfiler/Collector/request.html.twig'), 'data_collector.exception' => array(0 => 'exception', 1 => '@WebProfiler/Collector/exception.html.twig'), 'data_collector.events' => array(0 => 'events', 1 => '@WebProfiler/Collector/events.html.twig'), 'data_collector.logger' => array(0 => 'logger', 1 => '@WebProfiler/Collector/logger.html.twig'), 'data_collector.time' => array(0 => 'time', 1 => '@WebProfiler/Collector/time.html.twig'), 'data_collector.memory' => array(0 => 'memory', 1 => '@WebProfiler/Collector/memory.html.twig'), 'data_collector.router' => array(0 => 'router', 1 => '@WebProfiler/Collector/router.html.twig'), 'data_collector.form' => array(0 => 'form', 1 => '@WebProfiler/Collector/form.html.twig'), 'data_collector.security' => array(0 => 'security', 1 => '@Security/Collector/security.html.twig'), 'swiftmailer.data_collector' => array(0 => 'swiftmailer', 1 => '@Swiftmailer/Collector/swiftmailer.html.twig'), 'data_collector.doctrine' => array(0 => 'db', 1 => '@Doctrine/Collector/db.html.twig')), 'bottom');
     }
 
     /**
@@ -3694,7 +3773,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getAssetic_AssetFactoryService()
     {
-        $this->services['assetic.asset_factory'] = $instance = new \Symfony\Bundle\AsseticBundle\Factory\AssetFactory($this->get('kernel'), $this, $this->getParameterBag(), '/Users/bernardo/www/projetofinalsf/app/../web', true);
+        $this->services['assetic.asset_factory'] = $instance = new \Symfony\Bundle\AsseticBundle\Factory\AssetFactory($this->get('kernel'), $this, $this->getParameterBag(), '/Users/bernardo/www/projetofinal/app/../web', true);
 
         $instance->addWorker(new \Symfony\Bundle\AsseticBundle\Factory\Worker\UseControllerWorker());
 
@@ -3715,7 +3794,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getAssetic_CacheService()
     {
-        return $this->services['assetic.cache'] = new \Assetic\Cache\FilesystemCache('/Users/bernardo/www/projetofinalsf/app/cache/dev/assetic/assets');
+        return $this->services['assetic.cache'] = new \Assetic\Cache\FilesystemCache('/Users/bernardo/www/projetofinal/app/cache/dev/assetic/assets');
     }
 
     /**
@@ -3837,7 +3916,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Authentication_ManagerService()
     {
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username'), $this->get('security.user_checker'), 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('53ea5cbae6e8a')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username'), $this->get('security.user_checker'), 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('53f8b85e2a0b2')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 
@@ -3960,7 +4039,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getTemplating_LocatorService()
     {
-        return $this->services['templating.locator'] = new \Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator($this->get('file_locator'), '/Users/bernardo/www/projetofinalsf/app/cache/dev');
+        return $this->services['templating.locator'] = new \Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator($this->get('file_locator'), '/Users/bernardo/www/projetofinal/app/cache/dev');
     }
 
     /**
@@ -4014,12 +4093,12 @@ class appDevDebugProjectContainer extends Container
     protected function getDefaultParameters()
     {
         return array(
-            'kernel.root_dir' => '/Users/bernardo/www/projetofinalsf/app',
+            'kernel.root_dir' => '/Users/bernardo/www/projetofinal/app',
             'kernel.environment' => 'dev',
             'kernel.debug' => true,
             'kernel.name' => 'app',
-            'kernel.cache_dir' => '/Users/bernardo/www/projetofinalsf/app/cache/dev',
-            'kernel.logs_dir' => '/Users/bernardo/www/projetofinalsf/app/logs',
+            'kernel.cache_dir' => '/Users/bernardo/www/projetofinal/app/cache/dev',
+            'kernel.logs_dir' => '/Users/bernardo/www/projetofinal/app/logs',
             'kernel.bundles' => array(
                 'FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle',
                 'SecurityBundle' => 'Symfony\\Bundle\\SecurityBundle\\SecurityBundle',
@@ -4032,6 +4111,7 @@ class appDevDebugProjectContainer extends Container
                 'AulaFrontendBundle' => 'Aula\\FrontendBundle\\AulaFrontendBundle',
                 'AulaBackendBundle' => 'Aula\\BackendBundle\\AulaBackendBundle',
                 'FOSUserBundle' => 'FOS\\UserBundle\\FOSUserBundle',
+                'AulaUserBundle' => 'Aula\\UserBundle\\AulaUserBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',
@@ -4104,7 +4184,7 @@ class appDevDebugProjectContainer extends Container
             'debug.errors_logger_listener.class' => 'Symfony\\Component\\HttpKernel\\EventListener\\ErrorsLoggerListener',
             'debug.event_dispatcher.class' => 'Symfony\\Component\\HttpKernel\\Debug\\TraceableEventDispatcher',
             'debug.stopwatch.class' => 'Symfony\\Component\\Stopwatch\\Stopwatch',
-            'debug.container.dump' => '/Users/bernardo/www/projetofinalsf/app/cache/dev/appDevDebugProjectContainer.xml',
+            'debug.container.dump' => '/Users/bernardo/www/projetofinal/app/cache/dev/appDevDebugProjectContainer.xml',
             'debug.controller_resolver.class' => 'Symfony\\Component\\HttpKernel\\Controller\\TraceableControllerResolver',
             'debug.debug_handlers_listener.class' => 'Symfony\\Component\\HttpKernel\\EventListener\\DebugHandlersListener',
             'kernel.secret' => 'ThisTokenIsNotSoSecretChangeIt',
@@ -4130,7 +4210,7 @@ class appDevDebugProjectContainer extends Container
             'session.storage.options' => array(
                 'gc_probability' => 1,
             ),
-            'session.save_path' => '/Users/bernardo/www/projetofinalsf/app/cache/dev/sessions',
+            'session.save_path' => '/Users/bernardo/www/projetofinal/app/cache/dev/sessions',
             'session.metadata.update_threshold' => '0',
             'security.secure_random.class' => 'Symfony\\Component\\Security\\Core\\Util\\SecureRandom',
             'form.resolved_type_factory.class' => 'Symfony\\Component\\Form\\ResolvedFormTypeFactory',
@@ -4206,7 +4286,7 @@ class appDevDebugProjectContainer extends Container
             'data_collector.form.extractor.class' => 'Symfony\\Component\\Form\\Extension\\DataCollector\\FormDataExtractor',
             'profiler_listener.only_exceptions' => false,
             'profiler_listener.only_master_requests' => false,
-            'profiler.storage.dsn' => 'file:/Users/bernardo/www/projetofinalsf/app/cache/dev/profiler',
+            'profiler.storage.dsn' => 'file:/Users/bernardo/www/projetofinal/app/cache/dev/profiler',
             'profiler.storage.username' => '',
             'profiler.storage.password' => '',
             'profiler.storage.lifetime' => 86400,
@@ -4230,7 +4310,7 @@ class appDevDebugProjectContainer extends Container
             'router.request_context.host' => 'localhost',
             'router.request_context.scheme' => 'http',
             'router.request_context.base_url' => '',
-            'router.resource' => '/Users/bernardo/www/projetofinalsf/app/cache/dev/assetic/routing.yml',
+            'router.resource' => '/Users/bernardo/www/projetofinal/app/cache/dev/assetic/routing.yml',
             'router.cache_class_prefix' => 'appDev',
             'request_listener.http_port' => 80,
             'request_listener.https_port' => 443,
@@ -4349,7 +4429,7 @@ class appDevDebugProjectContainer extends Container
                 'exception_controller' => 'twig.controller.exception:showAction',
                 'autoescape_service' => NULL,
                 'autoescape_service_method' => NULL,
-                'cache' => '/Users/bernardo/www/projetofinalsf/app/cache/dev/twig',
+                'cache' => '/Users/bernardo/www/projetofinal/app/cache/dev/twig',
                 'charset' => 'UTF-8',
                 'paths' => array(
 
@@ -4423,7 +4503,7 @@ class appDevDebugProjectContainer extends Container
             'swiftmailer.mailer.default.transport.smtp.auth_mode' => NULL,
             'swiftmailer.mailer.default.transport.smtp.timeout' => 30,
             'swiftmailer.mailer.default.transport.smtp.source_ip' => NULL,
-            'swiftmailer.spool.default.memory.path' => '/Users/bernardo/www/projetofinalsf/app/cache/dev/swiftmailer/spool/default',
+            'swiftmailer.spool.default.memory.path' => '/Users/bernardo/www/projetofinal/app/cache/dev/swiftmailer/spool/default',
             'swiftmailer.mailer.default.spool.enabled' => true,
             'swiftmailer.mailer.default.plugin.impersonate' => NULL,
             'swiftmailer.mailer.default.single_address' => NULL,
@@ -4449,9 +4529,9 @@ class appDevDebugProjectContainer extends Container
             'assetic.node.paths' => array(
 
             ),
-            'assetic.cache_dir' => '/Users/bernardo/www/projetofinalsf/app/cache/dev/assetic',
+            'assetic.cache_dir' => '/Users/bernardo/www/projetofinal/app/cache/dev/assetic',
             'assetic.bundles' => array(
-
+                0 => 'FOSUserBundle',
             ),
             'assetic.twig_extension.class' => 'Symfony\\Bundle\\AsseticBundle\\Twig\\AsseticExtension',
             'assetic.twig_formula_loader.class' => 'Assetic\\Extension\\Twig\\TwigFormulaLoader',
@@ -4461,8 +4541,8 @@ class appDevDebugProjectContainer extends Container
             'assetic.debug' => true,
             'assetic.use_controller' => true,
             'assetic.enable_profiler' => false,
-            'assetic.read_from' => '/Users/bernardo/www/projetofinalsf/app/../web',
-            'assetic.write_to' => '/Users/bernardo/www/projetofinalsf/app/../web',
+            'assetic.read_from' => '/Users/bernardo/www/projetofinal/app/../web',
+            'assetic.write_to' => '/Users/bernardo/www/projetofinal/app/../web',
             'assetic.variables' => array(
 
             ),
@@ -4479,6 +4559,39 @@ class appDevDebugProjectContainer extends Container
             'assetic.cache.class' => 'Assetic\\Cache\\FilesystemCache',
             'assetic.use_controller_worker.class' => 'Symfony\\Bundle\\AsseticBundle\\Factory\\Worker\\UseControllerWorker',
             'assetic.request_listener.class' => 'Symfony\\Bundle\\AsseticBundle\\EventListener\\RequestListener',
+            'doctrine_cache.apc.class' => 'Doctrine\\Common\\Cache\\ApcCache',
+            'doctrine_cache.array.class' => 'Doctrine\\Common\\Cache\\ArrayCache',
+            'doctrine_cache.file_system.class' => 'Doctrine\\Common\\Cache\\FilesystemCache',
+            'doctrine_cache.php_file.class' => 'Doctrine\\Common\\Cache\\PhpFileCache',
+            'doctrine_cache.mongodb.class' => 'Doctrine\\Common\\Cache\\MongoDBCache',
+            'doctrine_cache.mongodb.collection.class' => 'MongoCollection',
+            'doctrine_cache.mongodb.connection.class' => 'MongoClient',
+            'doctrine_cache.mongodb.server' => 'localhost:27017',
+            'doctrine_cache.riak.class' => 'Doctrine\\Common\\Cache\\RiakCache',
+            'doctrine_cache.riak.bucket.class' => 'Riak\\Bucket',
+            'doctrine_cache.riak.connection.class' => 'Riak\\Connection',
+            'doctrine_cache.riak.bucket_property_list.class' => 'Riak\\BucketPropertyList',
+            'doctrine_cache.riak.host' => 'localhost',
+            'doctrine_cache.riak.port' => 8087,
+            'doctrine_cache.memcache.class' => 'Doctrine\\Common\\Cache\\MemcacheCache',
+            'doctrine_cache.memcache.connection.class' => 'Memcache',
+            'doctrine_cache.memcache.host' => 'localhost',
+            'doctrine_cache.memcache.port' => 11211,
+            'doctrine_cache.memcached.class' => 'Doctrine\\Common\\Cache\\MemcachedCache',
+            'doctrine_cache.memcached.connection.class' => 'Memcached',
+            'doctrine_cache.memcached.host' => 'localhost',
+            'doctrine_cache.memcached.port' => 11211,
+            'doctrine_cache.redis.class' => 'Doctrine\\Common\\Cache\\RedisCache',
+            'doctrine_cache.redis.connection.class' => 'Redis',
+            'doctrine_cache.redis.host' => 'localhost',
+            'doctrine_cache.redis.port' => 6379,
+            'doctrine_cache.couchbase.class' => 'Doctrine\\Common\\Cache\\CouchbaseCache',
+            'doctrine_cache.couchbase.connection.class' => 'Couchbase',
+            'doctrine_cache.couchbase.hostnames' => 'localhost:8091',
+            'doctrine_cache.wincache.class' => 'Doctrine\\Common\\Cache\\WinCacheCache',
+            'doctrine_cache.xcache.class' => 'Doctrine\\Common\\Cache\\XcacheCache',
+            'doctrine_cache.zenddata.class' => 'Doctrine\\Common\\Cache\\ZendDataCache',
+            'doctrine_cache.security.acl.cache.class' => 'Doctrine\\Bundle\\DoctrineCacheBundle\\Acl\\Model\\AclCache',
             'doctrine.dbal.logger.chain.class' => 'Doctrine\\DBAL\\Logging\\LoggerChain',
             'doctrine.dbal.logger.profiling.class' => 'Doctrine\\DBAL\\Logging\\DebugStack',
             'doctrine.dbal.logger.class' => 'Symfony\\Bridge\\Doctrine\\Logger\\DbalLogger',
@@ -4520,7 +4633,7 @@ class appDevDebugProjectContainer extends Container
             'doctrine.orm.cache.xcache.class' => 'Doctrine\\Common\\Cache\\XcacheCache',
             'doctrine.orm.cache.wincache.class' => 'Doctrine\\Common\\Cache\\WinCacheCache',
             'doctrine.orm.cache.zenddata.class' => 'Doctrine\\Common\\Cache\\ZendDataCache',
-            'doctrine.orm.metadata.driver_chain.class' => 'Doctrine\\ORM\\Mapping\\Driver\\DriverChain',
+            'doctrine.orm.metadata.driver_chain.class' => 'Doctrine\\Common\\Persistence\\Mapping\\Driver\\MappingDriverChain',
             'doctrine.orm.metadata.annotation.class' => 'Doctrine\\ORM\\Mapping\\Driver\\AnnotationDriver',
             'doctrine.orm.metadata.xml.class' => 'Doctrine\\ORM\\Mapping\\Driver\\SimplifiedXmlDriver',
             'doctrine.orm.metadata.yml.class' => 'Doctrine\\ORM\\Mapping\\Driver\\SimplifiedYamlDriver',
@@ -4532,10 +4645,19 @@ class appDevDebugProjectContainer extends Container
             'doctrine.orm.validator_initializer.class' => 'Symfony\\Bridge\\Doctrine\\Validator\\DoctrineInitializer',
             'doctrine.orm.security.user.provider.class' => 'Symfony\\Bridge\\Doctrine\\Security\\User\\EntityUserProvider',
             'doctrine.orm.listeners.resolve_target_entity.class' => 'Doctrine\\ORM\\Tools\\ResolveTargetEntityListener',
+            'doctrine.orm.listeners.attach_entity_listeners.class' => 'Doctrine\\ORM\\Tools\\AttachEntityListenersListener',
             'doctrine.orm.naming_strategy.default.class' => 'Doctrine\\ORM\\Mapping\\DefaultNamingStrategy',
             'doctrine.orm.naming_strategy.underscore.class' => 'Doctrine\\ORM\\Mapping\\UnderscoreNamingStrategy',
+            'doctrine.orm.entity_listener_resolver.class' => 'Doctrine\\ORM\\Mapping\\DefaultEntityListenerResolver',
+            'doctrine.orm.second_level_cache.default_cache_factory.class' => 'Doctrine\\ORM\\Cache\\DefaultCacheFactory',
+            'doctrine.orm.second_level_cache.default_region.class' => 'Doctrine\\ORM\\Cache\\Region\\DefaultRegion',
+            'doctrine.orm.second_level_cache.filelock_region.class' => 'Doctrine\\ORM\\Cache\\Region\\FileLockRegion',
+            'doctrine.orm.second_level_cache.logger_chain.class' => 'Doctrine\\ORM\\Cache\\Logging\\CacheLoggerChain',
+            'doctrine.orm.second_level_cache.logger_statistics.class' => 'Doctrine\\ORM\\Cache\\Logging\\StatisticsCacheLogger',
+            'doctrine.orm.second_level_cache.cache_configuration.class' => 'Doctrine\\ORM\\Cache\\CacheConfiguration',
+            'doctrine.orm.second_level_cache.regions_configuration.class' => 'Doctrine\\ORM\\Cache\\RegionsConfiguration',
             'doctrine.orm.auto_generate_proxy_classes' => true,
-            'doctrine.orm.proxy_dir' => '/Users/bernardo/www/projetofinalsf/app/cache/dev/doctrine/orm/Proxies',
+            'doctrine.orm.proxy_dir' => '/Users/bernardo/www/projetofinal/app/cache/dev/doctrine/orm/Proxies',
             'doctrine.orm.proxy_namespace' => 'Proxies',
             'sensio_framework_extra.view.guesser.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Templating\\TemplateGuesser',
             'sensio_framework_extra.controller.listener.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\ControllerListener',
@@ -4567,7 +4689,7 @@ class appDevDebugProjectContainer extends Container
                 'webmaster@example.com' => 'webmaster',
             ),
             'fos_user.registration.confirmation.enabled' => false,
-            'fos_user.registration.form.type' => 'fos_user_registration',
+            'fos_user.registration.form.type' => 'aula_user_registration',
             'fos_user.registration.form.name' => 'fos_user_registration_form',
             'fos_user.registration.form.validation_groups' => array(
                 0 => 'Registration',
@@ -4649,7 +4771,7 @@ class appDevDebugProjectContainer extends Container
                 ),
                 'data_collector.doctrine' => array(
                     0 => 'db',
-                    1 => 'DoctrineBundle:Collector:db',
+                    1 => '@Doctrine/Collector/db.html.twig',
                 ),
             ),
             'console.command.ids' => array(

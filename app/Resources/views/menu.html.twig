@@ -14,7 +14,7 @@
                             <input type="password" name="user_password" value="Password" />
                         </div>
                         <div class="button-wrap left nomargin">
-                            <a href="#" class="button submit-button">Logar</a>
+                            <a href="{{ path('fos_user_security_login') }}" class="button submit-button">Logar</a>
                         </div>                                          
                                                                     <div class="button-wrap switch-button left">
                             <a href="#" class="button dark" title="Password Recovery">
@@ -47,7 +47,7 @@
         </div>
         <div class="button-wrap left">
             <a href="{{ path('fos_user_registration_register') }}" class="button">
-                <span class="button-icon register"></span>Register                              
+                <span class="button-icon register"></span>Registro                          
             </a>
         </div>
     </div>
@@ -68,7 +68,7 @@
                     <!-- /mobile search form -->
                     <nav class="header-navigation right">
                         <div class="menu"><ul id="menu-main-menu" class="menu"><li id="menu-item-2146" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2129 current_page_item menu-item-2146"><a href="http://projetofinal.dev/">Home</a></li>
-<li id="menu-item-2138" class="menu-item menu-item-type-taxonomy menu-item-object-course_category menu-item-2138"><a href="http://projetofinal.dev/?course_category=all">Aulas</a></li>
+<li id="menu-item-2138" class="menu-item menu-item-type-taxonomy menu-item-object-course_category menu-item-2138"><a href="{{ path('aula_frontend_classes') }}">Aulas</a></li>
 <li id="menu-item-2131" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2131"><a href="http://projetofinal.dev/?page_id=2112">Planos</a></li>
 <li id="menu-item-2133" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2133"><a href="http://projetofinal.dev/?cat=2">Notícias</a></li>
 <li id="menu-item-2130" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2130"><a href="http://projetofinal.dev/?page_id=183">Sobre</a></li>

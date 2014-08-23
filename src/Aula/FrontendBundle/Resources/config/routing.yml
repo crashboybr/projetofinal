@@ -1,3 +1,19 @@
 aula_frontend_homepage:
     path:     /
     defaults: { _controller: AulaFrontendBundle:Default:index }
+
+aula_frontend_register:
+    path:     /cadastrar
+    defaults: { _controller: AulaFrontendBundle:Default:register }
+
+aula_frontend_grade_create:
+    path:     /salvar
+    defaults: { _controller: AulaFrontendBundle:Default:myGradeCreate }
+
+aula_frontend_classes:
+    path:     /aulas
+    defaults: { _controller: AulaFrontendBundle:Default:classes }
+
+aula_frontend_view_teacher:
+    path:     /professor/{id}
+    defaults: { _controller: AulaFrontendBundle:Default:viewTeacher }
