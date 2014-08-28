@@ -31,7 +31,7 @@
 					<div class="course-meta">
 						<header class="course-header">
 							<h5 class="nomargin"><a href="{{ path('aula_frontend_view_teacher', { 'id': teacher.id }) }}">
-								{{ teacher.grade }}
+								{#{ teacher.grade.name }#}
 							</a></h5>
 							<a href="{{ path('aula_frontend_view_teacher', { 'id': teacher.id }) }}" class="author">{{ teacher.name|capitalize }}</a>
 						</header>

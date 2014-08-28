@@ -31,81 +31,16 @@ class Grade
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="TeacherGrade", mappedBy="grade")
+     * @ORM\OneToMany(targetEntity="User", mappedBy="grade")
      */
-    protected $grades;
+    protected $users;
+
 
     public function __construct()
     {
         parent::__construct();
-        $this->grades = new ArrayCollection();
+        $this->users = new ArrayCollection();
         
     }
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Grade
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-
-    /**
-     * Add grades
-     *
-     * @param \Aula\BackendBundle\Entity\TeacherGrade $grades
-     * @return Grade
-     */
-    public function addGrade(\Aula\BackendBundle\Entity\TeacherGrade $grades)
-    {
-        $this->grades[] = $grades;
-
-        return $this;
-    }
-
-    /**
-     * Remove grades
-     *
-     * @param \Aula\BackendBundle\Entity\TeacherGrade $grades
-     */
-    public function removeGrade(\Aula\BackendBundle\Entity\TeacherGrade $grades)
-    {
-        $this->grades->removeElement($grades);
-    }
-
-    /**
-     * Get grades
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getGrades()
-    {
-        return $this->grades;
-    }
 }

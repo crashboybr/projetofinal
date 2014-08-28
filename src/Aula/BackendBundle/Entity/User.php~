@@ -11,13 +11,12 @@ use Gedmo\Mapping\Annotation as Gedmo;
 
 
 /**
- * @ORM\Entity(repositoryClass="Aula\BackendBundle\Entity\UserRepository")
+ * @ORM\Entity
  * @ORM\Table(name="fos_user")
  * @UniqueEntity(fields="email", message="Este email já está sendo utilizado.")
  * @UniqueEntity(fields="username", message="Este usuário já está sendo utilizado.")
  * @ORM\HasLifecycleCallbacks
  */
-
 class User extends BaseUser
 {
     /**
@@ -31,6 +30,8 @@ class User extends BaseUser
     {
         parent::__construct();
         $this->grade = new ArrayCollection();
+        $this->students = new ArrayCollection();
+        $this->teachers = new ArrayCollection();
         
     }
 
@@ -78,11 +79,27 @@ class User extends BaseUser
     protected $about_course;
 
     /**
-     * @ORM\OneToMany(targetEntity="Grade", mappedBy="users")
+     * @ORM\Column(type="string", length=30,nullable=true)
+     *    
      */
-    protected $grades;
+    protected $grade_id;
 
-    
+     /**
+     * @ORM\ManyToOne(targetEntity="Grade", inversedBy="users")
+     * @ORM\JoinColumn(name="grade_id", referencedColumnName="id")
+     */
+    protected $grade;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Schedule", mappedBy="student")
+     */
+    protected $students;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Schedule", mappedBy="teacher")
+     */
+    protected $teachers;
+
     /**
      * @ORM\Column(type="string", length=100,nullable=true)
      *    
@@ -210,211 +227,4 @@ class User extends BaseUser
     /* end upload file */
 
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return User
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set type
-     *
-     * @param string $type
-     * @return User
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return string 
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-
-    /**
-     * Add grade
-     *
-     * @param \Aula\BackendBundle\Entity\TeacherGrade $grade
-     * @return User
-     */
-    public function addGrade(\Aula\BackendBundle\Entity\TeacherGrade $grade)
-    {
-        $this->grade[] = $grade;
-
-        return $this;
-    }
-
-    /**
-     * Remove grade
-     *
-     * @param \Aula\BackendBundle\Entity\TeacherGrade $grade
-     */
-    public function removeGrade(\Aula\BackendBundle\Entity\TeacherGrade $grade)
-    {
-        $this->grade->removeElement($grade);
-    }
-
-    
-
-    /**
-     * Get grade_id
-     *
-     * @return string 
-     */
-    public function getGradeId()
-    {
-        return $this->grade_id;
-    }
-
-    /**
-     * Set pic
-     *
-     * @param string $pic
-     * @return User
-     */
-    public function setPic($pic)
-    {
-        $this->pic = $pic;
-
-        return $this;
-    }
-
-    /**
-     * Get pic
-     *
-     * @return string 
-     */
-    public function getPic()
-    {
-        return $this->pic;
-    }
-
-    /**
-     * Set grade_id
-     *
-     * @param string $gradeId
-     * @return User
-     */
-    public function setGradeId($gradeId)
-    {
-        //var_dump($gradeId->getId());exit;
-        $this->grade_id = $gradeId->getId();
-
-        return $this;
-    }
-
-    /**
-     * Set price
-     *
-     * @param integer $price
-     * @return User
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
-
-        return $this;
-    }
-
-    /**
-     * Get price
-     *
-     * @return integer 
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    /**
-     * Set about
-     *
-     * @param string $about
-     * @return User
-     */
-    public function setAbout($about)
-    {
-        $this->about = $about;
-
-        return $this;
-    }
-
-    /**
-     * Get about
-     *
-     * @return string 
-     */
-    public function getAbout()
-    {
-        return $this->about;
-    }
-
-    /**
-     * Set about_course
-     *
-     * @param string $aboutCourse
-     * @return User
-     */
-    public function setAboutCourse($aboutCourse)
-    {
-        $this->about_course = $aboutCourse;
-
-        return $this;
-    }
-
-    /**
-     * Get about_course
-     *
-     * @return string 
-     */
-    public function getAboutCourse()
-    {
-        return $this->about_course;
-    }
-
-    /**
-     * Get grades
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getGrades()
-    {
-        return $this->grades;
-    }
 }

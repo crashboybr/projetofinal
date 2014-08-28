@@ -16,93 +16,18 @@ use FOS\UserBundle\Event\FilterUserResponseEvent;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Aula\BackendBundle\Form\UserType;
 use Aula\FrontendBundle\Form\MyGradeType;
-use Aula\BackendBundle\Entity\TeacherGrade;
+use Aula\BackendBundle\Entity\User;
 
 class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('AulaFrontendBundle:Default:index.html.twig');
-    }
-
-    public function myGradesAction()
-    {
-    	$user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
-
-        $grades    = $em->getRepository('AulaBackendBundle:TeacherGrade')->findAll();
-        $my_grades = $em->getRepository('AulaBackendBundle:TeacherGrade')->findAll();//(array('toUser' => $user), array('createdAt' => 'DESC'));
-
-        /*$form_grade = $this->createForm(new UserType(), $user, array(
-            'action' => $this->generateUrl('aula_frontend_grade_create'),
-            'method' => 'POST',
-        ));*/
-        //$form_grade->add('pic', 'file', array('data_class' => 'Symfony\Component\HttpFoundation\File\File'));
-        $form_grade->add('submit', 'submit', array('label' => 'Enviar'));
-
-        
-        return $this->render('AulaFrontendBundle:Default:my_grades.html.twig', array('grades' => $grades, 'form_grade' => $form_grade->createView()));
-    }
-
-    public function myGradeCreateAction(Request $request)
-    {
-    	$user = $this->getUser();
-
-        $form = $this->createForm(new UserType(), $entity, array(
-            'action' => $this->generateUrl('aula_frontend_grade_create'),
-            'method' => 'POST',
-        ));
-        $form->add('submit', 'submit', array('label' => 'Enviar'));
-        
-        $form->handleRequest($request);
-
-        
-        var_dump($form->isValid());exit;
-        if ($form->isValid()) {
-        	//echo "<pre>";
-	        //\Doctrine\Common\Util\Debug::dump($entity);
-	        //exit;
-	        $em = $this->getDoctrine()->getManager();
-
-	        $user = $this->getUser();
-	        $entity->setUser($user);
-	        $em->persist($entity);
-            //exit;
+        $teachers = $em->getRepository('AulaBackendBundle:User')->findBy(array('type' => 'professor'),array(),4,0);
             
-            
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('fos_user_profile_show'));
-        }
-        $em = $this->getDoctrine()->getManager();
-        $grades    = $em->getRepository('AulaBackendBundle:TeacherGrade')->findAll();
-        return $this->render('AulaFrontendBundle:Default:my_grades.html.twig', array(
-            'entity' => $entity,
-            'form_grade'   => $form->createView(),
-            'grades' => $grades
-        ));
+        return $this->render('AulaFrontendBundle:Default:index.html.twig', array('teachers' => $teachers));
     }
 
-
-
-    /**
-    * Creates a form to create a Ad entity.
-    *
-    * @param Ad $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createCreateForm(TeacherGrade $entity)
-    {
-        $form = $this->createForm(new MyGradeType(), $entity, array(
-            'action' => $this->generateUrl('aula_frontend_grade_create'),
-            'method' => 'POST',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Enviar'));
-
-        return $form;
-    }
 
 
     public function registerAction(Request $request)
@@ -147,7 +72,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $teachers = $em->getRepository('AulaBackendBundle:User')->findBy(array('type' => 'professor'));
-
+        /*
         foreach ($teachers as $t) {
             $professores[$t->getId()]['name'] = $t->getName();
             $professores[$t->getId()]['pic'] = $t->getPic();
@@ -157,11 +82,11 @@ class DefaultController extends Controller
             
             
             $professores[$t->getId()]['grade'] = $grade->getName();
-        }
+        }*/
         //echo "<pre>";
         //\Doctrine\Common\Util\Debug::dump($teachers);
         //exit;
-        return $this->render('AulaFrontendBundle:Default:classes.html.twig', array('teachers' => $professores));
+        return $this->render('AulaFrontendBundle:Default:classes.html.twig', array('teachers' => $teachers));
     }
 
     public function viewTeacherAction($id)
@@ -182,6 +107,23 @@ class DefaultController extends Controller
             'teacher'      => $entity,
             'grade'        => $grade->getName(),
             'related'      => $related
+            ));
+    }
+
+
+    public function myRequestAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        //echo "<pre>";
+        $user = $this->getUser();
+        
+        if ($user->getType() == 'professor')
+            $schedules = $em->getRepository('AulaBackendBundle:Schedule')->findBy(array('teacherId' => $user->getId()));
+        else
+            $schedules = $em->getRepository('AulaBackendBundle:Schedule')->findBy(array('studentId' => $user->getId()));
+        
+        return $this->render('AulaFrontendBundle:Default:schedules.html.twig', array(
+            'schedules'      => $schedules
             ));
     }
 

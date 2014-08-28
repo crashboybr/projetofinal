@@ -31,16 +31,18 @@ class Grade
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="TeacherGrade", mappedBy="grade")
+     * @ORM\OneToMany(targetEntity="User", mappedBy="grade")
      */
-    protected $grades;
+    protected $users;
+
 
     public function __construct()
     {
         parent::__construct();
-        $this->grades = new ArrayCollection();
+        $this->users = new ArrayCollection();
         
     }
+
 
     /**
      * Get id
@@ -75,37 +77,36 @@ class Grade
         return $this->name;
     }
 
-
     /**
-     * Add grades
+     * Add users
      *
-     * @param \Aula\BackendBundle\Entity\TeacherGrade $grades
+     * @param \Aula\BackendBundle\Entity\User $users
      * @return Grade
      */
-    public function addGrade(\Aula\BackendBundle\Entity\TeacherGrade $grades)
+    public function addUser(\Aula\BackendBundle\Entity\User $users)
     {
-        $this->grades[] = $grades;
+        $this->users[] = $users;
 
         return $this;
     }
 
     /**
-     * Remove grades
+     * Remove users
      *
-     * @param \Aula\BackendBundle\Entity\TeacherGrade $grades
+     * @param \Aula\BackendBundle\Entity\User $users
      */
-    public function removeGrade(\Aula\BackendBundle\Entity\TeacherGrade $grades)
+    public function removeUser(\Aula\BackendBundle\Entity\User $users)
     {
-        $this->grades->removeElement($grades);
+        $this->users->removeElement($users);
     }
 
     /**
-     * Get grades
+     * Get users
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getGrades()
+    public function getUsers()
     {
-        return $this->grades;
+        return $this->users;
     }
 }

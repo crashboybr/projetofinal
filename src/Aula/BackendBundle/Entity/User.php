@@ -29,7 +29,8 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        $this->grade = new ArrayCollection();
+        $this->students = new ArrayCollection();
+        $this->teachers = new ArrayCollection();
         
     }
 
@@ -81,6 +82,22 @@ class User extends BaseUser
      *    
      */
     protected $grade_id;
+
+     /**
+     * @ORM\ManyToOne(targetEntity="Grade", inversedBy="users")
+     * @ORM\JoinColumn(name="grade_id", referencedColumnName="id")
+     */
+    protected $grade;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Schedule", mappedBy="student")
+     */
+    protected $students;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Schedule", mappedBy="teacher")
+     */
+    protected $teachers;
 
     /**
      * @ORM\Column(type="string", length=100,nullable=true)
@@ -209,6 +226,7 @@ class User extends BaseUser
     /* end upload file */
 
 
+
     /**
      * Get id
      *
@@ -263,79 +281,6 @@ class User extends BaseUser
     public function getType()
     {
         return $this->type;
-    }
-
-
-    /**
-     * Add grade
-     *
-     * @param \Aula\BackendBundle\Entity\TeacherGrade $grade
-     * @return User
-     */
-    public function addGrade(\Aula\BackendBundle\Entity\TeacherGrade $grade)
-    {
-        $this->grade[] = $grade;
-
-        return $this;
-    }
-
-    /**
-     * Remove grade
-     *
-     * @param \Aula\BackendBundle\Entity\TeacherGrade $grade
-     */
-    public function removeGrade(\Aula\BackendBundle\Entity\TeacherGrade $grade)
-    {
-        $this->grade->removeElement($grade);
-    }
-
-    
-
-    /**
-     * Get grade_id
-     *
-     * @return string 
-     */
-    public function getGradeId()
-    {
-        return $this->grade_id;
-    }
-
-    /**
-     * Set pic
-     *
-     * @param string $pic
-     * @return User
-     */
-    public function setPic($pic)
-    {
-        $this->pic = $pic;
-
-        return $this;
-    }
-
-    /**
-     * Get pic
-     *
-     * @return string 
-     */
-    public function getPic()
-    {
-        return $this->pic;
-    }
-
-    /**
-     * Set grade_id
-     *
-     * @param string $gradeId
-     * @return User
-     */
-    public function setGradeId($gradeId)
-    {
-        //var_dump($gradeId->getId());exit;
-        $this->grade_id = $gradeId->getId();
-
-        return $this;
     }
 
     /**
@@ -405,5 +350,140 @@ class User extends BaseUser
     public function getAboutCourse()
     {
         return $this->about_course;
+    }
+
+    /**
+     * Set grade_id
+     *
+     * @param string $gradeId
+     * @return User
+     */
+    public function setGradeId($gradeId)
+    {
+        $this->grade_id = $gradeId;
+
+        return $this;
+    }
+
+    /**
+     * Get grade_id
+     *
+     * @return string 
+     */
+    public function getGradeId()
+    {
+        return $this->grade_id;
+    }
+
+    /**
+     * Set pic
+     *
+     * @param string $pic
+     * @return User
+     */
+    public function setPic($pic)
+    {
+        $this->pic = $pic;
+
+        return $this;
+    }
+
+    /**
+     * Get pic
+     *
+     * @return string 
+     */
+    public function getPic()
+    {
+        return $this->pic;
+    }
+
+    /**
+     * Set grade
+     *
+     * @param \Aula\BackendBundle\Entity\Grade $grade
+     * @return User
+     */
+    public function setGrade(\Aula\BackendBundle\Entity\Grade $grade = null)
+    {
+        $this->grade = $grade;
+
+        return $this;
+    }
+
+    /**
+     * Get grade
+     *
+     * @return \Aula\BackendBundle\Entity\Grade 
+     */
+    public function getGrade()
+    {
+        return $this->grade;
+    }
+
+    /**
+     * Add students
+     *
+     * @param \Aula\BackendBundle\Entity\Schedule $students
+     * @return User
+     */
+    public function addStudent(\Aula\BackendBundle\Entity\Schedule $students)
+    {
+        $this->students[] = $students;
+
+        return $this;
+    }
+
+    /**
+     * Remove students
+     *
+     * @param \Aula\BackendBundle\Entity\Schedule $students
+     */
+    public function removeStudent(\Aula\BackendBundle\Entity\Schedule $students)
+    {
+        $this->students->removeElement($students);
+    }
+
+    /**
+     * Get students
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getStudents()
+    {
+        return $this->students;
+    }
+
+    /**
+     * Add teachers
+     *
+     * @param \Aula\BackendBundle\Entity\Schedule $teachers
+     * @return User
+     */
+    public function addTeacher(\Aula\BackendBundle\Entity\Schedule $teachers)
+    {
+        $this->teachers[] = $teachers;
+
+        return $this;
+    }
+
+    /**
+     * Remove teachers
+     *
+     * @param \Aula\BackendBundle\Entity\Schedule $teachers
+     */
+    public function removeTeacher(\Aula\BackendBundle\Entity\Schedule $teachers)
+    {
+        $this->teachers->removeElement($teachers);
+    }
+
+    /**
+     * Get teachers
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTeachers()
+    {
+        return $this->teachers;
     }
 }

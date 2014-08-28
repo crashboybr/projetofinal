@@ -17,3 +17,11 @@ aula_frontend_classes:
 aula_frontend_view_teacher:
     path:     /professor/{id}
     defaults: { _controller: AulaFrontendBundle:Default:viewTeacher }
+
+#aula_frontend_schedule:
+#    path:     /agendar/{teacher}
+#    defaults: { _controller: AulaFrontendBundle:Default:schedule }
+
+AulaBackendBundle_schedule:
+        resource: "@AulaBackendBundle/Resources/config/routing/schedule.yml"
+        prefix:   /agendar

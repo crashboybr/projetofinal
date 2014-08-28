@@ -1,0 +1,28 @@
+schedule:
+    path:     /list
+    defaults: { _controller: "AulaBackendBundle:Schedule:index" }
+
+schedule_show:
+    path:     /{id}/show
+    defaults: { _controller: "AulaBackendBundle:Schedule:show" }
+
+schedule_new:
+    path:     /
+    defaults: { _controller: "AulaBackendBundle:Schedule:new" }
+
+schedule_create:
+    path:     /create
+    defaults: { _controller: "AulaBackendBundle:Schedule:create" }
+    requirements: { _method: post }
+
+schedule_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AulaBackendBundle:Schedule:edit" }
+schedule_update:
+    path:     /{id}/update
+    defaults: { _controller: "AulaBackendBundle:Schedule:update" }
+    requirements: { _method: post|put }
+schedule_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AulaBackendBundle:Schedule:delete" }
+    requirements: { _method: post|delete }
