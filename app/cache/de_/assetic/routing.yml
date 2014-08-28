@@ -1,5 +1,0 @@
-_assetic:
-    resource: .
-    type: assetic
-_app:
-    resource: /Users/bernardo/www/projetofinalsf/app/config/routing_dev.yml
