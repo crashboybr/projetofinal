@@ -48,10 +48,10 @@ $(document).ready(function () {
 			<div class="inputLabel">
 		    	
 		    	
-				{{ form_widget(form.gradeId, { 'attr': {'class': 'rounder', 'placeholder': 'Tipo' } }) }}
-				{% if (form.gradeId.vars.errors|length > 0) %}
+				{{ form_widget(form.grade, { 'attr': {'class': 'rounder', 'placeholder': 'Tipo' } }) }}
+				{% if (form.grade.vars.errors|length > 0) %}
 		    		<div class="alert">
-						<p class="alert-text">{{ form.gradeId.vars.errors[0].message }}</p>
+						<p class="alert-text">{{ form.grade.vars.errors[0].message }}</p>
 					</div>
 		    	{% endif %}
 			</div>

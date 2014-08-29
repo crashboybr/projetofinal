@@ -15,7 +15,7 @@ class UserType extends BaseType
         $builder->add('name')
                 ->add('type', 'choice', array('choices' => array('professor' => 'Professor', 'aluno' => 'Aluno')))
                 ->add('file', 'file', array('data_class' => 'Symfony\Component\HttpFoundation\File\File'))
-                ->add('gradeId', 'entity', array(
+                ->add('grade', 'entity', array(
                 'class'       => 'AulaBackendBundle:Grade',
                 'expanded'    => true,
                 'multiple'    => false,

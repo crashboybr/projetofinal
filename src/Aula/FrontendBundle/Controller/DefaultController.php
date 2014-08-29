@@ -98,14 +98,34 @@ class DefaultController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find entity.');
         }
+        //echo "<pre>";
+        //var_dump($entity);exit;
+        //$grade = $em->getRepository('AulaBackendBundle:Grade')->findOneById($entity->getGradeId());
+        $user = $this->getUser();
+        $schedule = null;
+        if ($user) {
+            //$schedule = $em->getRepository('AulaBackendBundle:Schedule')->findOneBy(array('teacherId' => $id, 'studentId' => $user->getId(), 'status' ));
+            $repository = $this->getDoctrine()
+                ->getRepository('AulaBackendBundle:Schedule');
 
-        $grade = $em->getRepository('AulaBackendBundle:Grade')->findOneById($entity->getGradeId());
+            $qb = $repository->createQueryBuilder('u');
+            
+            $qb->where('u.status != :status AND u.teacherId = :teacher_id AND u.studentId = :student_id')
+               ->setParameter('status', -10)
+               ->setParameter('teacher_id', $id)
+               ->setParameter('student_id', $user->getId());
+
+            $schedule = $qb->getQuery()
+                ->getSingleResult();
+                //echo "<pre>";
+            //var_dump($schedule);exit;
+        }
 
         $related = $em->getRepository('AulaBackendBundle:User')->findBy(array('grade_id' => $entity->getGradeId()));
 
         return $this->render('AulaFrontendBundle:Default:view_teacher.html.twig', array(
             'teacher'      => $entity,
-            'grade'        => $grade->getName(),
+            'schedule'        => $schedule,
             'related'      => $related
             ));
     }
@@ -123,8 +143,28 @@ class DefaultController extends Controller
             $schedules = $em->getRepository('AulaBackendBundle:Schedule')->findBy(array('studentId' => $user->getId()));
         
         return $this->render('AulaFrontendBundle:Default:schedules.html.twig', array(
-            'schedules'      => $schedules
+            'schedules'      => $schedules,
+            'user' => $user
             ));
+    }
+
+    public function acceptRequestAction($id, $accept)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $user = $this->getUser();
+        
+        $schedule = $em->getRepository('AulaBackendBundle:Schedule')->find($id);
+
+        if ($accept)
+            $schedule->setStatus(10);
+        else 
+            $schedule->setStatus(-10);
+
+        $em->persist($schedule);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('fos_user_profile_show'));
     }
 
 

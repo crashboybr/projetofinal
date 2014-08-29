@@ -1,5 +1,42 @@
-{% for schedule in schedules %}
-	{{ schedule.student.name }}
+{% if user.type == 'aluno' %}
+	{% for schedule in schedules %}
+		<p><strong>Solicitação nº {{ loop.index }}</strong></p>
+		<p>Professor: <a href="{{ path('aula_frontend_view_teacher', { 'id': schedule.teacher.id }) }}">{{ schedule.teacher.name }}</a></p>
+		<p>Matéria: {{ schedule.teacher.grade.name }}</p>
+		<p>Data: {{ schedule.classAt|date('d/m/Y h:m' )}}</p>
+		<p>Status: 
+		{% if schedule.status == -1 %}
+			Aguardando resposta do professor
+		{% elseif schedule.status == -10 %}
+			Sua solicitação foi recusada!
+		{% elseif schedule.status == 10 %}
+			Solicitação aceita!
+		{% endif %}
+		</p>
 
+		<hr>
 
-{% endfor %}
+	{% else %}
+		Você não tem nenhuma requisição de aula ainda!
+	{% endfor %}
+{% else %}
+	{% for schedule in schedules %}
+		<p><strong>Solicitação nº {{ loop.index }}</strong></p>
+		<p>Aluno: {{ schedule.student.name }}</p>
+		<p>Data: {{ schedule.classAt|date('d/m/Y h:m' )}}</p>
+		<p>Status: 
+		{% if schedule.status == -1 %}
+			<a href="{{ path('aula_frontend_accept', { 'id': schedule.id, 'accept': 1 } ) }}">Aceitar</a> | <a href="{{ path('aula_frontend_accept', { 'id': schedule.id, 'accept': 0 } ) }}">Recusar</a>
+		{% elseif schedule.status == -10 %}
+			Solicitação recusada!
+		{% elseif schedule.status == 10 %}
+			Solicitação aceita!
+		{% endif %}
+		</p>
+
+		<hr>
+
+	{% else %}
+		Você não tem nenhuma requisição de aula ainda!
+	{% endfor %}
+{% endif %}

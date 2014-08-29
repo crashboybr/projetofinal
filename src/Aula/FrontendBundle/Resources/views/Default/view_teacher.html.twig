@@ -19,7 +19,7 @@
 			</div>
 	<div class="course-meta">
 		<header class="course-header">
-			<h5 class="nomargin"><a href="#">{{ grade }}</a></h5>
+			<h5 class="nomargin"><a href="#">{{ teacher.grade.name }}</a></h5>
 						<a href="#" class="author">{{ teacher.name|capitalize }}</a>
 					</header>
 				<footer class="course-footer clearfix">
@@ -37,16 +37,25 @@
 		</div>
 		<div class="widget-content">
 			<h4>Sobre o Curso</h4>
-<p>Maecenas a leo nisi. Nam pharetra imperdiet diam, ut consequat felis egestas sagittis. Donec at nunc augue, cursus iaculis libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dignissim lobortis ligula, quis fringilla justo dictum phasellus adipiscing dictum!</p>
+<p>{{ teacher.aboutCourse }}</p>
 <h4>Sobre o Professor</h4>
-<p>Nam sem nulla, mollis ac ullamcorper in, placerat eget lectus. Suspendisse in dui eu neque suscipit imperdiet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit aliquam lobortis.</p>
+<p>{{ teacher.about }}</p>
 			<footer class="course-footer">
+				{% if schedule %}
+					{% if schedule.status == -1 %}
+						Aguardando resposta do professor
+					{% elseif schedule.status == 10 %}
+						Solicitação aceita! <br />
+						Data: {{ schedule.classAt|date('d/m/Y h:m') }}
+					{% endif %}
+				{% else %}
 					<form action="{{ path('schedule_new') }}" method="POST">
-					<a href="#" class="button medium price-button submit-button left">		
-						Agendar					
-					</a>
-					<input type="hidden" name="teacherId" value="{{ teacher.id }}">
-				</form>
+						<a href="#" class="button medium price-button submit-button left">		
+							Agendar					
+						</a>
+						<input type="hidden" name="teacherId" value="{{ teacher.id }}">
+					</form>
+				{% endif %}
 				
 			</footer>
 		</div>						
@@ -136,7 +145,7 @@
 			</div>
 			<div class="course-meta">
 				<header class="course-header">
-					<h5 class="nomargin"><a href="#">{{ grade }}</a></h5>
+					<h5 class="nomargin"><a href="#">{{ teacher.grade.name }}</a></h5>
 					<a href="{{ path('aula_frontend_view_teacher', { 'id': teacher.id }) }}" class="author">{{ teacher.name|capitalize }}</a>
 				</header>
 				<footer class="course-footer clearfix">
