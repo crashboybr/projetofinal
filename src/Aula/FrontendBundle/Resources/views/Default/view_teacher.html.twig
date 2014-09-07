@@ -46,7 +46,8 @@
 						Aguardando resposta do professor
 					{% elseif schedule.status == 10 %}
 						Solicitação aceita! <br />
-						Data: {{ schedule.classAt|date('d/m/Y h:m') }}
+						Data: {{ schedule.classAt|date('d/m/Y h:m') }}<br />
+						<a href="http://162.248.161.219/" class="button medium price-button left">Iniciar Aula</a>
 					{% endif %}
 				{% else %}
 					<form action="{{ path('schedule_new') }}" method="POST">

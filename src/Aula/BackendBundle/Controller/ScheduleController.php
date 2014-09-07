@@ -93,18 +93,22 @@ class ScheduleController extends Controller
      */
     public function newAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $teacherId = $_POST['teacherId'];
-        $teacher = $em->getRepository('AulaBackendBundle:User')->find($teacherId);
+        if ($this->getRequest()->isMethod("POST")) { 
+            $em = $this->getDoctrine()->getManager();
+            $teacherId = $_POST['teacherId'];
+            $teacher = $em->getRepository('AulaBackendBundle:User')->find($teacherId);
 
-        $entity = new Schedule();
-        $form   = $this->createCreateForm($entity);
-        $form->add('teacherId', 'hidden', array('data' => $teacher->getId()));
+            $entity = new Schedule();
+            $form   = $this->createCreateForm($entity);
+            $form->add('teacherId', 'hidden', array('data' => $teacher->getId()));
 
-        return $this->render('AulaBackendBundle:Schedule:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
+            return $this->render('AulaBackendBundle:Schedule:new.html.twig', array(
+                'entity' => $entity,
+                'form'   => $form->createView(),
+            ));
+        } else {
+            return $this->redirect($this->generateUrl('aula_frontend_homepage'));
+        }
     }
 
     /**
