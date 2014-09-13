@@ -3,33 +3,36 @@
 {% block cssbody %}single single-course{% endblock %}
 {% block featuredcontent %}
 <div class="substrate">
-				<img src="http://templateprojeto/wp-content/themes/academy/images/bgs/site_bg.jpg" class="fullwidth" alt="" />			</div>
+				<img src="http://templateprojeto/wp-content/themes/academy/images/bgs/site_bg.jpg" class="fullwidth" alt="" />			
+				</div>
 						<div class="row">
 							<div class="threecol column">
-<div class="course-preview free-course">
-	<div class="course-image">
-		<a href="http://templateprojeto/?course=home-fitness-training"><img width="420" height="420" src="{{ asset(teacher.pic) }}" class="attachment-normal wp-post-image" alt="image_49" /></a>
-				<div class="course-price product-price">
-			<div class="price-text">R$ {{ teacher.price }},00</div>
-			<div class="corner-wrap">
-				<div class="corner"></div>
-				<div class="corner-background"></div>
-			</div>			
-		</div>
-			</div>
-	<div class="course-meta">
-		<header class="course-header">
-			<h5 class="nomargin"><a href="#">{{ teacher.grade.name }}</a></h5>
-						<a href="#" class="author">{{ teacher.name|capitalize }}</a>
-					</header>
-				<footer class="course-footer clearfix">
-						<div class="course-users left">
-				10			</div>
-									<div class="course-rating rating-form">
-	<div data-score="4" data-readonly="true"></div>
-	</div>					</footer>
-			</div>
-</div></div>
+								<div class="course-preview free-course">
+									<div class="course-image">
+										<a href="http://templateprojeto/?course=home-fitness-training"><img width="420" height="420" src="{{ asset(teacher.pic) }}" class="attachment-normal wp-post-image" alt="image_49" /></a>
+										<div class="course-price product-price">
+											<div class="price-text">R$ {{ teacher.price }},00</div>
+											<div class="corner-wrap">
+												<div class="corner"></div>
+												<div class="corner-background"></div>
+											</div>			
+										</div>
+									</div>
+									<div class="course-meta">
+										<header class="course-header">
+											<h5 class="nomargin"><a href="#">{{ teacher.grade.name }}</a></h5>
+											<a href="#" class="author">{{ teacher.name|capitalize }}</a>
+										</header>
+										<footer class="course-footer clearfix">
+											<div class="course-users left">
+											{{ schedules|length }}
+											</div>
+												<div class="course-rating rating-form">
+												<div data-score="{{ total_ratings }}" data-readonly="true"></div>
+												</div>					</footer>
+											</div>
+										</div>
+									</div>
 <div class="sixcol column">
 	<div class="course-description widget free-course">
 		<div class="widget-title">
@@ -65,69 +68,62 @@
 <aside class="sidebar threecol column last">
 	<div class="widget">
 	<div class="widget-title">
-		<h4 class="nomargin left">Students</h4>
+		<h4 class="nomargin left">Alunos</h4>
 	</div>
 	<div class="widget-content clearfix">
 		<div class="users-listing clearfix">
-								<div class="user-image ">
-						<div class="bordered-image">
-							<a title="Vickie Sullivan" href="http://templateprojeto/?author=15"><img src="http://templateprojeto/wp-content/themes/academy/images/avatar.png" class="avatar" width="100" alt="" /></a>
-						</div>
-					</div>
-										<div class="user-image ">
-						<div class="bordered-image">
-							<a title="John Crandall" href="http://templateprojeto/?author=8"><img src="http://templateprojeto/wp-content/themes/academy/images/avatar.png" class="avatar" width="100" alt="" /></a>
-						</div>
-					</div>
-										<div class="user-image last">
-						<div class="bordered-image">
-							<a title="Susan Johnson" href="http://templateprojeto/?author=5"><img src="http://templateprojeto/wp-content/themes/academy/images/avatar.png" class="avatar" width="100" alt="" /></a>
-						</div>
-					</div>
-					<div class="clear"></div>					<div class="user-image ">
-						<div class="bordered-image">
-							<a title="Robert Basler" href="http://templateprojeto/?author=6"><img src="http://templateprojeto/wp-content/themes/academy/images/avatar.png" class="avatar" width="100" alt="" /></a>
-						</div>
-					</div>
-										<div class="user-image ">
-						<div class="bordered-image">
-							<a title="Helen Anderson" href="http://templateprojeto/?author=21"><img src="http://templateprojeto/wp-content/themes/academy/images/avatar.png" class="avatar" width="100" alt="" /></a>
-						</div>
-					</div>
-										<div class="user-image last">
-						<div class="bordered-image">
-							<a title="Sarah Green" href="http://templateprojeto/?author=20"><img src="http://templateprojeto/wp-content/themes/academy/images/avatar.png" class="avatar" width="100" alt="" /></a>
-						</div>
-					</div>
-					<div class="clear"></div>					<div class="user-image ">
-						<div class="bordered-image">
-							<a title="John Bergerson" href="http://templateprojeto/?author=18"><img src="http://templateprojeto/wp-content/themes/academy/images/avatar.png" class="avatar" width="100" alt="" /></a>
-						</div>
-					</div>
-										<div class="user-image ">
-						<div class="bordered-image">
-							<a title="Steph Yazzie" href="http://templateprojeto/?author=11"><img src="http://templateprojeto/wp-content/themes/academy/images/avatar.png" class="avatar" width="100" alt="" /></a>
-						</div>
-					</div>
-										<div class="user-image last">
-						<div class="bordered-image">
-							<a title="Evan Ritter" href="http://templateprojeto/?author=24"><img src="http://templateprojeto/wp-content/themes/academy/images/avatar.png" class="avatar" width="100" alt="" /></a>
-						</div>
-					</div>
-					<div class="clear"></div>		</div>
+			{% for schedule in schedules %}
+			<div class="user-image {% if loop.index is divisibleby(3) %}last{% endif %}">
+				<div class="bordered-image">
+					<a title="{{ schedule.student.name }}" href="#"><img src="{{ asset(schedule.student.pic) }}" class="avatar" width="100" alt="" /></a>
+				</div>
+			</div>
+			{% if loop.index is divisibleby(3) %}<div class="clear"></div>{% endif %}
+			{% endfor %}
+			
+			<div class="clear"></div>					
+
+			
+		</div>
 	</div>
-</div></aside>
+</div>
+</aside>
 						</div>
 				
 	
 {% endblock %}
 {% block body %}
 
-<div class="row"><div class="course-content clearfix popup-container">
-		<div class="fullwidth-section">
-				</div>
+<div class="row">
+	<div class="course-content clearfix popup-container">
+		<div class="fullwidth-section"></div>
+	</div>
+	<div class="twelvecol column last">
+		<h1>Depoimentos</h1>
+		<div class="testimonials">
+			{% for rating in ratings %}
+				<article class="testimonial">
+					<div class="testimonial-image">
+						<div class="bubble-image">
+							<img width="264" height="264" src="{{ asset(rating.student.pic) }}" class="attachment-small wp-post-image" alt="avatar_27">			
+							<div class="substrate">
+								<img src="/academy/images/bgs/testimonial_bg.png" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="testimonial-text">
+						<p>{{ rating.testimonial }}</p>
+						<h6 class="author nomargin">{{ rating.student.name }}</h6>
+					</div>
+				</article>
+			{% endfor %}
+
 		</div>
+	</div>
 <!-- /course content -->
+<div class="course-content clearfix popup-container">
+		<div class="fullwidth-section"></div>
+	</div>
 <div class="related-courses clearfix">
 <h1>Cursos Relacionados</h1>
 	<div class="courses-listing clearfix">

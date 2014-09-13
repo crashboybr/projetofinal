@@ -3,6 +3,11 @@
 namespace Aula\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Schedule
@@ -13,6 +18,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Schedule
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->schedules_rating = new ArrayCollection();
+       
+    }
+
     /**
      * @var integer
      *
@@ -47,6 +59,11 @@ class Schedule
      * @ORM\JoinColumn(name="student_id", referencedColumnName="id")
      */
     protected $student;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Rating", mappedBy="schedule")
+     */
+    protected $schedules_rating;
 
 
     /**
@@ -287,5 +304,38 @@ class Schedule
     public function getStudent()
     {
         return $this->student;
+    }
+
+    /**
+     * Add schedules_rating
+     *
+     * @param \Aula\BackendBundle\Entity\Rating $schedulesRating
+     * @return Schedule
+     */
+    public function addSchedulesRating(\Aula\BackendBundle\Entity\Rating $schedulesRating)
+    {
+        $this->schedules_rating[] = $schedulesRating;
+
+        return $this;
+    }
+
+    /**
+     * Remove schedules_rating
+     *
+     * @param \Aula\BackendBundle\Entity\Rating $schedulesRating
+     */
+    public function removeSchedulesRating(\Aula\BackendBundle\Entity\Rating $schedulesRating)
+    {
+        $this->schedules_rating->removeElement($schedulesRating);
+    }
+
+    /**
+     * Get schedules_rating
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSchedulesRating()
+    {
+        return $this->schedules_rating;
     }
 }

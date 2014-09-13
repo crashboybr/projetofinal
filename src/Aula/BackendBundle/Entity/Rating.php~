@@ -10,21 +10,14 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Schedule
+ * Rating
  *
  * @ORM\Table()
- * @ORM\HasLifecycleCallbacks
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
-class Schedule
+class Rating
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->schedules_rating = new ArrayCollection();
-       
-    }
-
     /**
      * @var integer
      *
@@ -42,7 +35,7 @@ class Schedule
     private $teacherId;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="teachers")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="teachers_rating")
      * @ORM\JoinColumn(name="teacher_id", referencedColumnName="id")
      */
     protected $teacher;
@@ -55,30 +48,37 @@ class Schedule
     private $studentId;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="students")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="students_rating")
      * @ORM\JoinColumn(name="student_id", referencedColumnName="id")
      */
     protected $student;
 
     /**
-     * @ORM\OneToMany(targetEntity="Rating", mappedBy="schedule")
+     * @var integer
+     *
+     * @ORM\Column(name="class_id", type="integer")
      */
-    protected $schedules_rating;
+    private $classId;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Schedule", inversedBy="schedules_rating")
+     * @ORM\JoinColumn(name="class_id", referencedColumnName="id")
+     */
+    protected $schedule;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="status", type="integer")
+     * @ORM\Column(name="rating", type="integer")
      */
-    private $status;
+    private $rating;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="class_at", type="datetime")
+     * @ORM\Column(name="testimonial", type="text")
      */
-    private $classAt;
+    private $testimonial;
 
     /**
      * @var \DateTime
@@ -109,7 +109,7 @@ class Schedule
      * Set teacherId
      *
      * @param integer $teacherId
-     * @return Schedule
+     * @return Rating
      */
     public function setTeacherId($teacherId)
     {
@@ -132,7 +132,7 @@ class Schedule
      * Set studentId
      *
      * @param integer $studentId
-     * @return Schedule
+     * @return Rating
      */
     public function setStudentId($studentId)
     {
@@ -152,56 +152,79 @@ class Schedule
     }
 
     /**
-     * Set status
+     * Set classId
      *
-     * @param integer $status
-     * @return Schedule
+     * @param integer $classId
+     * @return Rating
      */
-    public function setStatus($status)
+    public function setClassId($classId)
     {
-        $this->status = $status;
+        $this->classId = $classId;
 
         return $this;
     }
 
     /**
-     * Get status
+     * Get classId
      *
      * @return integer 
      */
-    public function getStatus()
+    public function getClassId()
     {
-        return $this->status;
+        return $this->classId;
     }
 
     /**
-     * Set classAt
+     * Set rating
      *
-     * @param \DateTime $classAt
-     * @return Schedule
+     * @param integer $rating
+     * @return Rating
      */
-    public function setClassAt($classAt)
+    public function setRating($rating)
     {
-        $this->classAt = $classAt;
+        $this->rating = $rating;
 
         return $this;
     }
 
     /**
-     * Get classAt
+     * Get rating
      *
-     * @return \DateTime 
+     * @return integer 
      */
-    public function getClassAt()
+    public function getRating()
     {
-        return $this->classAt;
+        return $this->rating;
+    }
+
+    /**
+     * Set testimonial
+     *
+     * @param string $testimonial
+     * @return Rating
+     */
+    public function setTestimonial($testimonial)
+    {
+        $this->testimonial = $testimonial;
+
+        return $this;
+    }
+
+    /**
+     * Get testimonial
+     *
+     * @return string 
+     */
+    public function getTestimonial()
+    {
+        return $this->testimonial;
     }
 
     /**
      * Set createdAt
      *
      * @param \DateTime $createdAt
-     * @return Schedule
+     * @return Rating
      */
     public function setCreatedAt($createdAt)
     {
@@ -224,7 +247,7 @@ class Schedule
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
-     * @return Schedule
+     * @return Rating
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -243,7 +266,7 @@ class Schedule
         return $this->updatedAt;
     }
 
-     /**
+    /**
      * Now we tell doctrine that before we persist or update we call the updatedTimestamps() function.
      *
      * @ORM\PrePersist
@@ -259,12 +282,11 @@ class Schedule
         }
     }
 
-
     /**
      * Set teacher
      *
      * @param \Aula\BackendBundle\Entity\User $teacher
-     * @return Schedule
+     * @return Rating
      */
     public function setTeacher(\Aula\BackendBundle\Entity\User $teacher = null)
     {
@@ -287,7 +309,7 @@ class Schedule
      * Set student
      *
      * @param \Aula\BackendBundle\Entity\User $student
-     * @return Schedule
+     * @return Rating
      */
     public function setStudent(\Aula\BackendBundle\Entity\User $student = null)
     {

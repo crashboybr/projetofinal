@@ -103,6 +103,7 @@ class DefaultController extends Controller
         //$grade = $em->getRepository('AulaBackendBundle:Grade')->findOneById($entity->getGradeId());
         $user = $this->getUser();
         $schedule = null;
+
         if ($user) {
             //$schedule = $em->getRepository('AulaBackendBundle:Schedule')->findOneBy(array('teacherId' => $id, 'studentId' => $user->getId(), 'status' ));
             $repository = $this->getDoctrine()
@@ -114,19 +115,31 @@ class DefaultController extends Controller
                ->setParameter('status', -10)
                ->setParameter('teacher_id', $id)
                ->setParameter('student_id', $user->getId());
+            $qb->setMaxResults(1);
 
             $schedule = $qb->getQuery()
-                ->getSingleResult();
-                //echo "<pre>";
-            //var_dump($schedule);exit;
+                ->getResult();
+
+            if ($schedule) $schedule = $schedule[0];
+
         }
 
-        $related = $em->getRepository('AulaBackendBundle:User')->findBy(array('grade_id' => $entity->getGradeId()));
+        $ratings = $em->getRepository('AulaBackendBundle:Rating')->findBy(array('teacher' => $entity));
+        $schedules = $em->getRepository('AulaBackendBundle:Schedule')->findBy(array('teacher' => $entity));
+        $total = 0;
+        foreach ($ratings as $rating) 
+            $total += $rating->getRating();
+        $total_ratings = $total / count($ratings);
+
+        $related = $em->getRepository('AulaBackendBundle:User')->findBy(array('grade' => $entity->getGrade()));
 
         return $this->render('AulaFrontendBundle:Default:view_teacher.html.twig', array(
-            'teacher'      => $entity,
-            'schedule'        => $schedule,
-            'related'      => $related
+            'teacher'           => $entity,
+            'schedule'          => $schedule,
+            'related'           => $related,
+            'ratings'           => $ratings,
+            'total_ratings'     => $total_ratings,
+            'schedules'         => $schedules,
             ));
     }
 

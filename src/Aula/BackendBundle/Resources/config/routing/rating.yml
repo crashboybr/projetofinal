@@ -1,0 +1,30 @@
+rating:
+    path:     /
+    defaults: { _controller: "AulaBackendBundle:Rating:index" }
+
+rating_show:
+    path:     /{id}/show
+    defaults: { _controller: "AulaBackendBundle:Rating:show" }
+
+rating_new:
+    path:     /{teacher}/professor/{class}/aula
+    defaults: { _controller: "AulaBackendBundle:Rating:new" }
+
+rating_create:
+    path:     /create
+    defaults: { _controller: "AulaBackendBundle:Rating:create" }
+    requirements: { _method: post }
+
+rating_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AulaBackendBundle:Rating:edit" }
+
+rating_update:
+    path:     /{id}/update
+    defaults: { _controller: "AulaBackendBundle:Rating:update" }
+    requirements: { _method: post|put }
+
+rating_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AulaBackendBundle:Rating:delete" }
+    requirements: { _method: post|delete }

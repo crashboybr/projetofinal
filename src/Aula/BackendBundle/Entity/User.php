@@ -31,6 +31,9 @@ class User extends BaseUser
         parent::__construct();
         $this->students = new ArrayCollection();
         $this->teachers = new ArrayCollection();
+
+        $this->students_rating = new ArrayCollection();
+        $this->teachers_rating = new ArrayCollection();
         
     }
 
@@ -93,6 +96,16 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="Schedule", mappedBy="student")
      */
     protected $students;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Rating", mappedBy="student")
+     */
+    protected $students_rating;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Rating", mappedBy="teacher")
+     */
+    protected $teachers_rating;
 
     /**
      * @ORM\OneToMany(targetEntity="Schedule", mappedBy="teacher")
@@ -485,5 +498,71 @@ class User extends BaseUser
     public function getTeachers()
     {
         return $this->teachers;
+    }
+
+    /**
+     * Add students_rating
+     *
+     * @param \Aula\BackendBundle\Entity\Rating $studentsRating
+     * @return User
+     */
+    public function addStudentsRating(\Aula\BackendBundle\Entity\Rating $studentsRating)
+    {
+        $this->students_rating[] = $studentsRating;
+
+        return $this;
+    }
+
+    /**
+     * Remove students_rating
+     *
+     * @param \Aula\BackendBundle\Entity\Rating $studentsRating
+     */
+    public function removeStudentsRating(\Aula\BackendBundle\Entity\Rating $studentsRating)
+    {
+        $this->students_rating->removeElement($studentsRating);
+    }
+
+    /**
+     * Get students_rating
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getStudentsRating()
+    {
+        return $this->students_rating;
+    }
+
+    /**
+     * Add teachers_rating
+     *
+     * @param \Aula\BackendBundle\Entity\Rating $teachersRating
+     * @return User
+     */
+    public function addTeachersRating(\Aula\BackendBundle\Entity\Rating $teachersRating)
+    {
+        $this->teachers_rating[] = $teachersRating;
+
+        return $this;
+    }
+
+    /**
+     * Remove teachers_rating
+     *
+     * @param \Aula\BackendBundle\Entity\Rating $teachersRating
+     */
+    public function removeTeachersRating(\Aula\BackendBundle\Entity\Rating $teachersRating)
+    {
+        $this->teachers_rating->removeElement($teachersRating);
+    }
+
+    /**
+     * Get teachers_rating
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTeachersRating()
+    {
+        return $this->teachers_rating;
     }
 }

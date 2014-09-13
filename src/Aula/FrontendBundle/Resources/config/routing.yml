@@ -29,3 +29,7 @@ AulaBackendBundle_schedule:
 aula_frontend_accept:
     path:     /aceitar/{id}/{accept}
     defaults: { _controller: AulaFrontendBundle:Default:acceptRequest }
+
+AulaBackendBundle_rating:
+        resource: "@AulaBackendBundle/Resources/config/routing/rating.yml"
+        prefix:   /avaliar

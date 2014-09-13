@@ -29,9 +29,11 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        $this->grade = new ArrayCollection();
         $this->students = new ArrayCollection();
         $this->teachers = new ArrayCollection();
+
+        $this->students_rating = new ArrayCollection();
+        $this->teachers_rating = new ArrayCollection();
         
     }
 
@@ -94,6 +96,16 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="Schedule", mappedBy="student")
      */
     protected $students;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Rating", mappedBy="student")
+     */
+    protected $students_rating;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Rating", mappedBy="teacher")
+     */
+    protected $teachers_rating;
 
     /**
      * @ORM\OneToMany(targetEntity="Schedule", mappedBy="teacher")
@@ -227,4 +239,330 @@ class User extends BaseUser
     /* end upload file */
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return User
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return User
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set price
+     *
+     * @param integer $price
+     * @return User
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return integer 
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set about
+     *
+     * @param string $about
+     * @return User
+     */
+    public function setAbout($about)
+    {
+        $this->about = $about;
+
+        return $this;
+    }
+
+    /**
+     * Get about
+     *
+     * @return string 
+     */
+    public function getAbout()
+    {
+        return $this->about;
+    }
+
+    /**
+     * Set about_course
+     *
+     * @param string $aboutCourse
+     * @return User
+     */
+    public function setAboutCourse($aboutCourse)
+    {
+        $this->about_course = $aboutCourse;
+
+        return $this;
+    }
+
+    /**
+     * Get about_course
+     *
+     * @return string 
+     */
+    public function getAboutCourse()
+    {
+        return $this->about_course;
+    }
+
+    /**
+     * Set grade_id
+     *
+     * @param string $gradeId
+     * @return User
+     */
+    public function setGradeId($gradeId)
+    {
+        $this->grade_id = $gradeId;
+
+        return $this;
+    }
+
+    /**
+     * Get grade_id
+     *
+     * @return string 
+     */
+    public function getGradeId()
+    {
+        return $this->grade_id;
+    }
+
+    /**
+     * Set pic
+     *
+     * @param string $pic
+     * @return User
+     */
+    public function setPic($pic)
+    {
+        $this->pic = $pic;
+
+        return $this;
+    }
+
+    /**
+     * Get pic
+     *
+     * @return string 
+     */
+    public function getPic()
+    {
+        return $this->pic;
+    }
+
+    /**
+     * Set grade
+     *
+     * @param \Aula\BackendBundle\Entity\Grade $grade
+     * @return User
+     */
+    public function setGrade(\Aula\BackendBundle\Entity\Grade $grade = null)
+    {
+        $this->grade = $grade;
+
+        return $this;
+    }
+
+    /**
+     * Get grade
+     *
+     * @return \Aula\BackendBundle\Entity\Grade 
+     */
+    public function getGrade()
+    {
+        return $this->grade;
+    }
+
+    /**
+     * Add students
+     *
+     * @param \Aula\BackendBundle\Entity\Schedule $students
+     * @return User
+     */
+    public function addStudent(\Aula\BackendBundle\Entity\Schedule $students)
+    {
+        $this->students[] = $students;
+
+        return $this;
+    }
+
+    /**
+     * Remove students
+     *
+     * @param \Aula\BackendBundle\Entity\Schedule $students
+     */
+    public function removeStudent(\Aula\BackendBundle\Entity\Schedule $students)
+    {
+        $this->students->removeElement($students);
+    }
+
+    /**
+     * Get students
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getStudents()
+    {
+        return $this->students;
+    }
+
+    /**
+     * Add teachers
+     *
+     * @param \Aula\BackendBundle\Entity\Schedule $teachers
+     * @return User
+     */
+    public function addTeacher(\Aula\BackendBundle\Entity\Schedule $teachers)
+    {
+        $this->teachers[] = $teachers;
+
+        return $this;
+    }
+
+    /**
+     * Remove teachers
+     *
+     * @param \Aula\BackendBundle\Entity\Schedule $teachers
+     */
+    public function removeTeacher(\Aula\BackendBundle\Entity\Schedule $teachers)
+    {
+        $this->teachers->removeElement($teachers);
+    }
+
+    /**
+     * Get teachers
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTeachers()
+    {
+        return $this->teachers;
+    }
+
+    /**
+     * Add students_rating
+     *
+     * @param \Aula\BackendBundle\Entity\Rating $studentsRating
+     * @return User
+     */
+    public function addStudentsRating(\Aula\BackendBundle\Entity\Rating $studentsRating)
+    {
+        $this->students_rating[] = $studentsRating;
+
+        return $this;
+    }
+
+    /**
+     * Remove students_rating
+     *
+     * @param \Aula\BackendBundle\Entity\Rating $studentsRating
+     */
+    public function removeStudentsRating(\Aula\BackendBundle\Entity\Rating $studentsRating)
+    {
+        $this->students_rating->removeElement($studentsRating);
+    }
+
+    /**
+     * Get students_rating
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getStudentsRating()
+    {
+        return $this->students_rating;
+    }
+
+    /**
+     * Add teachers_rating
+     *
+     * @param \Aula\BackendBundle\Entity\Rating $teachersRating
+     * @return User
+     */
+    public function addTeachersRating(\Aula\BackendBundle\Entity\Rating $teachersRating)
+    {
+        $this->teachers_rating[] = $teachersRating;
+
+        return $this;
+    }
+
+    /**
+     * Remove teachers_rating
+     *
+     * @param \Aula\BackendBundle\Entity\Rating $teachersRating
+     */
+    public function removeTeachersRating(\Aula\BackendBundle\Entity\Rating $teachersRating)
+    {
+        $this->teachers_rating->removeElement($teachersRating);
+    }
+
+    /**
+     * Get teachers_rating
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTeachersRating()
+    {
+        return $this->teachers_rating;
+    }
 }
