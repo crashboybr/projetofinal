@@ -1,12 +1,47 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<h1>Seus dados</h1>
-<div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
-    <p><a href="{{ path('fos_user_profile_edit') }}">Editar Dados</a>
-</div>
-<br /><br />
-<h1>Solicitações de Aula</h1>
 
-{{ render(controller('AulaFrontendBundle:Default:myRequest')) }}
+
+	<div class="tabs-container vertical-tabs clearfix">
+		<div class="column threecol tabs">
+			<ul>
+				<li><h5 class="nomargin"><a href="#agenda">Agenda</a></h5></li>
+				<li><h5 class="nomargin"><a href="#solicitacoes">Solicitações</a></h5></li>
+				<li><h5 class="nomargin"><a href="#dados">Meus Dados</a></h5></li>
+			</ul>
+		</div>
+		<div class="panes column ninecol last">
+			<div class="pane" id="agenda-tab">
+				<div class="twelve column"><br />
+					<h1>Agenda</h1>
+					{{ render(controller('AulaFrontendBundle:Default:agenda')) }}
+				</div>
+			</div>
+			<div class="pane" id="solicitacoes-tab">
+				<div class="twelve column"><br />
+					<h1>Solicitações</h1>
+					{{ render(controller('AulaFrontendBundle:Default:myRequest')) }}
+				</div>
+				
+				<div class="clear"></div>
+			</div>
+			<div class="pane" id="dados-tab">
+				<div class="sevencol column"><br />
+					<h1>Seus Dados</h1>
+					<div class="fos_user_user_show">
+						<p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+						<p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+						<p>Sobre: {{ user.about }}</p>
+						<p>Sobre o Curso: {{ user.aboutCourse }}</p>
+						<p><a href="{{ path('fos_user_profile_edit') }}" class="button  primary" alt="" />Editar Dados</a></p>
+					</div>
+					
+				</div>
+				<div class="fivecol column last"><img src="{{ asset(user.pic) }}" alt="" />
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+			
+		</div>
+	</div>

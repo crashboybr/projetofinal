@@ -1,0 +1,39 @@
+<link rel='stylesheet' href='/calendar/lib/cupertino/jquery-ui.min.css' />
+<link href='/calendar/fullcalendar.css' rel='stylesheet' />
+<link href='/calendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+<script src='/calendar/lib/moment.min.js'></script>
+<script src='/calendar/lib/jquery.min.js'></script>
+<script src='/calendar/fullcalendar.min.js'></script>
+<script src='/calendar/lang-all.js'></script>
+
+<script>
+
+	$(document).ready(function() {
+		
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,basicWeek,basicDay'
+			},
+			defaultDate: '2014-09-12',
+			lang: 'pt-br',
+			editable: true,
+			eventLimit: true, // allow "more" link when too many events
+			events: [
+				{% for schedule in schedules %}
+				{
+					title: '{{ schedule.student.name }}',
+					url: 'http://google.com/',
+					start: '{{ schedule.classAt|date("Y-m-d")}}T{{ schedule.classAt|date("h:m:s")}}'
+				},
+				{% endfor %}
+
+			]
+		});
+		
+	});
+
+</script>
+
+<div id="calendar"></div>

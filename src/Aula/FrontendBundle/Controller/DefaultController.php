@@ -180,5 +180,24 @@ class DefaultController extends Controller
         return $this->redirect($this->generateUrl('fos_user_profile_show'));
     }
 
+    public function agendaAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        //echo "<pre>";
+        $user = $this->getUser();
+        
+        if ($user->getType() == 'professor')
+            $schedules = $em->getRepository('AulaBackendBundle:Schedule')->findBy(
+                array('teacherId' => $user->getId(), 'status' => 10)
+                );
+        else
+            $schedules = $em->getRepository('AulaBackendBundle:Schedule')->findBy(array('studentId' => $user->getId()));
+        
+        return $this->render('AulaFrontendBundle:Default:agenda.html.twig', array(
+            'schedules'      => $schedules,
+            'user' => $user
+            ));
+    }
+
 
 }

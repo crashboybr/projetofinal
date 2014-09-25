@@ -20,7 +20,7 @@ class Schedule
 {
     public function __construct()
     {
-        parent::__construct();
+        //parent::__construct();
         $this->schedules_rating = new ArrayCollection();
        
     }
