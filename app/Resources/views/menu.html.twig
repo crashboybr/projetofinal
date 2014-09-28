@@ -2,7 +2,7 @@
     <div class="login-options right">
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                <a href="{{ path('fos_user_profile_show') }}" class="button">
-                <span class="button-icon register"></span>Minha Conta                          
+                <span class="button-icon register"></span>{{ app.user.name }}                      
             </a>
         {% else %}                                    
         <div class="button-wrap left login-button">
@@ -33,14 +33,22 @@
                     </div>
                     <!-- /mobile search form -->
                     <nav class="header-navigation right">
-                        <div class="menu"><ul id="menu-main-menu" class="menu"><li id="menu-item-2146" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2129 current_page_item menu-item-2146"><a href="{{ path('aula_frontend_homepage') }}">Home</a></li>
-<li id="menu-item-2138" class="menu-item menu-item-type-taxonomy menu-item-object-course_category menu-item-2138"><a href="{{ path('aula_frontend_classes') }}">Aulas</a></li>
-<li id="menu-item-2130" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2130"><a href="http://projetofinal.dev/?page_id=183">Sobre</a></li>
-<li id="menu-item-2154" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2154"><a href="http://projetofinal.dev/?page_id=601">Ajuda</a></li>
-</ul></div>                     
+                        <div class="menu">
+                        <ul id="menu-main-menu" class="menu">
+                        <li id="menu-item-2146" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2129 current_page_item menu-item-2146"><a href="{{ path('aula_frontend_homepage') }}">Início</a></li>
+
+                        <li id="menu-item-2138" class="menu-item menu-item-type-taxonomy menu-item-object-course_category menu-item-2138"><a href="{{ path('aula_frontend_classes') }}">Aulas</a></li>
+                        
+                        
+                        <li id="menu-item-2154" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2154"><a href="http://projetofinal.dev/?page_id=601">Ajuda</a></li>
+                        </ul>
+                        </div>                     
                         <div class="select-menu">
                             <span></span>
-                            <select><option value="http://projetofinal.dev/">Home</option><option value="http://projetofinal.dev/?course_category=all">Aulas</option><option value="http://projetofinal.dev/?page_id=2112">Planos</option><option value="http://projetofinal.dev/?cat=2">Notícias</option><option value="http://projetofinal.dev/?page_id=183">Sobre</option><option value="http://projetofinal.dev/?page_id=601">Ajuda</option></select>                           
+                            <select>
+                            <option value="http://projetofinal.dev/">Início</option>
+                            <option value="http://projetofinal.dev/?course_category=all">Aulas</option>
+                            <option value="http://projetofinal.dev/?page_id=601">Ajuda</option></select>                           
                         </div>
                         <!--/ select menu-->
                     </nav>

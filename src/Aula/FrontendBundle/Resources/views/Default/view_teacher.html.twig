@@ -9,7 +9,7 @@
 							<div class="threecol column">
 								<div class="course-preview free-course">
 									<div class="course-image">
-										<a href="http://templateprojeto/?course=home-fitness-training"><img width="420" height="420" src="{{ asset(teacher.pic) }}" class="attachment-normal wp-post-image" alt="image_49" /></a>
+										<a href="http://templateprojeto/?course=home-fitness-training"><img width="420" height="420" src="{% if teacher.pic %}{{ asset(teacher.pic) }}{% else %}/academy/images/avatar.png{% endif %}" class="attachment-normal wp-post-image" alt="image_49" /></a>
 										<div class="course-price product-price">
 											<div class="price-text">R$ {{ teacher.price }},00</div>
 											<div class="corner-wrap">
@@ -40,9 +40,10 @@
 		</div>
 		<div class="widget-content">
 			<h4>Sobre o Curso</h4>
-<p>{{ teacher.aboutCourse }}</p>
-<h4>Sobre o Professor</h4>
-<p>{{ teacher.about }}</p>
+			<p>{{ teacher.aboutCourse }}</p>
+			<h4>Sobre o Professor</h4>
+			<p>{{ teacher.about }}</p>
+			{% if app.user.type != 'professor' %}
 			<footer class="course-footer">
 				{% if schedule %}
 					{% if schedule.status == -1 %}
@@ -53,6 +54,7 @@
 						<a href="http://162.248.161.219/" class="button medium price-button left">Iniciar Aula</a>
 					{% endif %}
 				{% else %}
+
 					<form action="{{ path('schedule_new') }}" method="POST">
 						<a href="#" class="button medium price-button submit-button left">		
 							Agendar					
@@ -62,6 +64,7 @@
 				{% endif %}
 				
 			</footer>
+			{% endif %}
 		</div>						
 	</div>
 </div>
@@ -75,7 +78,7 @@
 			{% for schedule in schedules %}
 			<div class="user-image {% if loop.index is divisibleby(3) %}last{% endif %}">
 				<div class="bordered-image">
-					<a title="{{ schedule.student.name }}" href="#"><img src="{{ asset(schedule.student.pic) }}" class="avatar" width="100" alt="" /></a>
+					<a title="{{ schedule.student.name }}" href="#"><img src="{% if schedule.student.pic %}{{ asset(schedule.student.pic) }}{% else %}/academy/images/avatar.png{% endif %}" class="avatar" width="100" alt="" /></a>
 				</div>
 			</div>
 			{% if loop.index is divisibleby(3) %}<div class="clear"></div>{% endif %}
@@ -105,7 +108,7 @@
 				<article class="testimonial">
 					<div class="testimonial-image">
 						<div class="bubble-image">
-							<img width="264" height="264" src="{{ asset(rating.student.pic) }}" class="attachment-small wp-post-image" alt="avatar_27">			
+							<img width="264" height="264" src="{% if rating.student.pic %}{{ asset(rating.student.pic) }}{% else %}/academy/images/avatar.png{% endif %}" class="attachment-small wp-post-image" alt="avatar_27">			
 							<div class="substrate">
 								<img src="/academy/images/bgs/testimonial_bg.png" alt="">
 							</div>
@@ -131,7 +134,7 @@
 		<div class="column threecol  {% if loop.index is divisibleby(4) %}last{% endif %} ">
 			<div class="course-preview free-course">
 			<div class="course-image">
-				<a href="{{ path('aula_frontend_view_teacher', { 'id': teacher.id }) }}"><img width="420" height="420" src="{{ asset(teacher.pic) }}" class="attachment-normal wp-post-image" alt="image_45" /></a>
+				<a href="{{ path('aula_frontend_view_teacher', { 'id': teacher.id }) }}"><img width="420" height="420" src="{% if teacher.pic %}{{ asset(teacher.pic) }}{% else %}/academy/images/avatar.png{% endif %}" class="attachment-normal wp-post-image" alt="image_45" /></a>
 				<div class="course-price product-price">
 					<div class="price-text">R$ {{ teacher.price }},00</div>
 					<div class="corner-wrap">

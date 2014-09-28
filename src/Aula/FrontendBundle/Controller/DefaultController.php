@@ -127,9 +127,13 @@ class DefaultController extends Controller
         $ratings = $em->getRepository('AulaBackendBundle:Rating')->findBy(array('teacher' => $entity));
         $schedules = $em->getRepository('AulaBackendBundle:Schedule')->findBy(array('teacher' => $entity));
         $total = 0;
+
         foreach ($ratings as $rating) 
             $total += $rating->getRating();
-        $total_ratings = $total / count($ratings);
+        if (count($ratings))
+            $total_ratings = $total / count($ratings);
+        else 
+            $total_ratings = 0;
 
         $related = $em->getRepository('AulaBackendBundle:User')->findBy(array('grade' => $entity->getGrade()));
 

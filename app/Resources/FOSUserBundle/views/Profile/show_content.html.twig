@@ -37,7 +37,7 @@
 					</div>
 					
 				</div>
-				<div class="fivecol column last"><img src="{{ asset(user.pic) }}" alt="" />
+				<div class="fivecol column last"><img src="{% if user.pic %}{{ asset(user.pic) }}{% else %}/academy/images/avatar.png{% endif %}" alt="" />
 				</div>
 				<div class="clear"></div>
 			</div>

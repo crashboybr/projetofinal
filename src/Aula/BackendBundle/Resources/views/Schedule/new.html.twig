@@ -1,15 +1,26 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Schedule creation</h1>
+<div class="row">
+	<div class="twelvecol column ">
+    <h3>Agendar</h3>
 
-    {{ form(form) }}
+    <form action="{{ path('schedule_create') }}" id="form" {{ form_enctype(form) }} method="POST" class="new_entity_factories_free_entity_factory" novalidate>
+	    	{{ form_errors(form) }}
+	    	{{ form_row(form._token) }} 
+	 
+		    <div class="inputLabel">
+		    	
+				{{ form_widget(form.classAt, { 'attr': {'class': 'rounder', 'style': '' } }) }}
+				{% if (form.classAt.vars.errors|length > 0) %}
+		    		<div class="alert">
+						<p class="alert-text">{{ form.classAt.vars.errors[0].message }}</p>
+					</div>
+		    	{% endif %}
+			</div>
+			<button type="submit">Agendar</button>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('schedule') }}">
-            Back to the list
-        </a>
-    </li>
 </ul>
+</div>
+</div>
 {% endblock %}

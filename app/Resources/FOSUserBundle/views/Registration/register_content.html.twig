@@ -4,9 +4,9 @@
 {% trans_default_domain 'FOSUserBundle' %}
 <script type="text/javascript">
 
-$(document).ready(function () {
+jQuery(document).ready(function () {
 
-
+	mudarTipo();
 
 	$("#form").validate({
 			
@@ -14,7 +14,31 @@ $(document).ready(function () {
 		});
 
 });
+function mudarTipo() {
+	//$('#show_grade').hide();
+	var text = getSelectedText('fos_user_registration_form_type');
+	if (text == 'Aluno') {
+		document.getElementById("show_grade").style.display = 'none';
+		document.getElementById("fos_user_registration_form_price").style.display = 'none';
+		document.getElementById("fos_user_registration_form_about_course").style.display = 'none';
 
+	}
+	else  {
+		document.getElementById("show_grade").style.display = 'block';
+		document.getElementById("fos_user_registration_form_price").style.display = 'block';
+		document.getElementById("fos_user_registration_form_about_course").style.display = 'block';
+	}
+    //document.getElementById(two).style.display = 'none';
+}
+
+function getSelectedText(elementId) {
+    var elt = document.getElementById(elementId);
+
+    if (elt.selectedIndex == -1)
+        return null;
+
+    return elt.options[elt.selectedIndex].text;
+}
 </script>
 <div class="row">
 	<div class="twelvecol column ">
@@ -37,7 +61,7 @@ $(document).ready(function () {
 			<div class="inputLabel">
 		    	
 		    	
-				{{ form_widget(form.type, { 'attr': {'class': 'rounder', 'placeholder': 'Tipo' } }) }}
+				{{ form_widget(form.type, { 'attr': {'class': 'rounder', 'placeholder': 'Tipo', 'onchange': 'mudarTipo()' } }) }}
 				{% if (form.type.vars.errors|length > 0) %}
 		    		<div class="alert">
 						<p class="alert-text">{{ form.type.vars.errors[0].message }}</p>
@@ -45,7 +69,7 @@ $(document).ready(function () {
 		    	{% endif %}
 			</div>
 
-			<div class="inputLabel">
+			<div class="inputLabel" id="show_grade">
 		    	
 		    	
 				{{ form_widget(form.grade, { 'attr': {'class': 'rounder', 'placeholder': 'Tipo' } }) }}

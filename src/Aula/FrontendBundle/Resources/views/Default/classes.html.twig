@@ -19,7 +19,7 @@
 			<div class="column threecol {% if loop.index is divisibleby(4) %}last{% endif %} ">
 				<div class="course-preview free-course">
 					<div class="course-image">
-						<a href="{{ path('aula_frontend_view_teacher', { 'id': teacher.id }) }}"><img width="420" height="420" src="{{ asset(teacher.pic) }}" class="attachment-normal wp-post-image" alt="image_45" /></a>
+						<a href="{{ path('aula_frontend_view_teacher', { 'id': teacher.id }) }}"><img width="420" height="420" src="{% if teacher.pic %}{{ asset(teacher.pic) }}{% else %}/academy/images/avatar.png{% endif %}" class="attachment-normal wp-post-image" alt="image_45" /></a>
 						<div class="course-price product-price">
 							<div class="price-text">R$ {{ teacher.price }},00</div>
 							<div class="corner-wrap">
