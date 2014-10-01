@@ -165,6 +165,22 @@ class DefaultController extends Controller
             ));
     }
 
+    public function redirClassAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        //echo "<pre>";
+        $user = $this->getUser();
+        
+        
+        $schedule = $em->getRepository('AulaBackendBundle:Schedule')->find($id);
+
+        $schedule->setStatus(100);
+        $em->persist($schedule);
+        $em->flush();
+        
+        return $this->redirect('http://162.248.161.219/');
+    }
+
     public function acceptRequestAction($id, $accept)
     {
         $em = $this->getDoctrine()->getManager();

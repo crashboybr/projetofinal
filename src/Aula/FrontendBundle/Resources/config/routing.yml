@@ -14,6 +14,10 @@ aula_frontend_classes:
     path:     /aulas
     defaults: { _controller: AulaFrontendBundle:Default:classes }
 
+aula_redir:
+    path:     /redir/{id}
+    defaults: { _controller: AulaFrontendBundle:Default:redirClass }
+
 aula_frontend_view_teacher:
     path:     /professor/{id}
     defaults: { _controller: AulaFrontendBundle:Default:viewTeacher }

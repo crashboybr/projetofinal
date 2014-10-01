@@ -10,7 +10,18 @@
 		{% elseif schedule.status == -10 %}
 			Sua solicitação foi recusada!
 		{% elseif schedule.status == 10 %}
-			Solicitação aceita!
+			
+			{% if "now"|date('d/m/Y') == schedule.classAt|date('d/m/Y' ) %}
+			Solicitação aceita!<br />
+			<a href="{{ path('aula_redir', { 'id': schedule.id }) }}" class="button medium price-button left">Iniciar Aula</a><br />
+			{% else %}
+				Aula expirada!<br /> 
+				Favor reagendar com seu professor.
+			{% endif %}
+		{% elseif schedule.status == 100 %}
+			Aula finalizada com sucesso!<br />
+			<a href="{{ path('rating_new', { 'teacher': schedule.teacher.id, 'class': schedule.id }) }}" class="button medium price-button left">Avaliar Aula</a><br />
+			
 		{% endif %}
 		</p>
 

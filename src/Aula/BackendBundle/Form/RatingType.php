@@ -15,8 +15,8 @@ class RatingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('rating')
-            ->add('testimonial')
+            ->add('rating', 'integer', array('label' => 'Nota (0-5)'))
+            ->add('testimonial', 'textarea', array('label' => 'Depoimento'))
             ->add('student_id', 'hidden')
             ->add('class_id', 'hidden')
             //->add('schedule', 'collection', 

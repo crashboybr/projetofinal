@@ -43,6 +43,7 @@
 			<p>{{ teacher.aboutCourse }}</p>
 			<h4>Sobre o Professor</h4>
 			<p>{{ teacher.about }}</p>
+			{% if app.user %}
 			{% if app.user.type != 'professor' %}
 			<footer class="course-footer">
 				{% if schedule %}
@@ -64,6 +65,7 @@
 				{% endif %}
 				
 			</footer>
+			{% endif %}
 			{% endif %}
 		</div>						
 	</div>
@@ -101,10 +103,11 @@
 	<div class="course-content clearfix popup-container">
 		<div class="fullwidth-section"></div>
 	</div>
-	<div class="twelvecol column last">
+	<div class="twelvecol column">
 		<h1>Depoimentos</h1>
 		<div class="testimonials">
 			{% for rating in ratings %}
+				<div class="fourcol column last" style="margin-bottom: 20px;">
 				<article class="testimonial">
 					<div class="testimonial-image">
 						<div class="bubble-image">
@@ -119,7 +122,9 @@
 						<h6 class="author nomargin">{{ rating.student.name }}</h6>
 					</div>
 				</article>
+				</div>
 			{% endfor %}
+			
 
 		</div>
 	</div>
