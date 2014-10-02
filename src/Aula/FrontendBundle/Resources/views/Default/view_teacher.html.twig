@@ -43,16 +43,24 @@
 			<p>{{ teacher.aboutCourse }}</p>
 			<h4>Sobre o Professor</h4>
 			<p>{{ teacher.about }}</p>
-			{% if app.user %}
-			{% if app.user.type != 'professor' %}
+			
+			{% if not app.user or app.user.type != 'professor' %}
 			<footer class="course-footer">
 				{% if schedule %}
 					{% if schedule.status == -1 %}
 						Aguardando resposta do professor
-					{% elseif schedule.status == 10 %}
+					{% elseif schedule.status == 10 and "now"|date('d/m/Y') == schedule.classAt|date('d/m/Y') %}
+
 						Solicitação aceita! <br />
 						Data: {{ schedule.classAt|date('d/m/Y h:m') }}<br />
-						<a href="http://162.248.161.219/" class="button medium price-button left">Iniciar Aula</a>
+						<a href="{{ path('aula_redir', { 'id': schedule.id }) }}" class="button medium price-button left">Iniciar Aula</a>
+					{% else %}
+						<form action="{{ path('schedule_new') }}" method="POST">
+							<a href="#" class="button medium price-button submit-button left">		
+								Agendar					
+							</a>
+							<input type="hidden" name="teacherId" value="{{ teacher.id }}">
+						</form>
 					{% endif %}
 				{% else %}
 
@@ -66,7 +74,7 @@
 				
 			</footer>
 			{% endif %}
-			{% endif %}
+			
 		</div>						
 	</div>
 </div>

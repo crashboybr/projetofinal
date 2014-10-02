@@ -1,13 +1,81 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
+<link rel='stylesheet' href='/calendar/lib/cupertino/jquery-ui.min.css' />
+<link href='/calendar/fullcalendar.css' rel='stylesheet' />
+<link href='/calendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+<script src='/calendar/lib/moment.min.js'></script>
+<script src='/calendar/lib/jquery.min.js'></script>
+<script src='/calendar/fullcalendar.min.js'></script>
+<script src='/calendar/lang-all.js'></script>
+<script src='/datetime/jquery.datetimepicker.js'></script>
+<link href='/datetime/jquery.datetimepicker.css' rel='stylesheet' />
+
+<script>
+
+	$(document).ready(function() {
+		
+		$('#calendar').fullCalendar({
+			dayClick: function(date, allDay, jsEvent, view) {
+
+		        
+
+		        $('#aula_backendbundle_schedule_classAt_date').val(date.format());
+		        
+
+		        // change the day's background color just for fun
+		        $(this).css('background-color', 'red');
+		        
+
+		        $(this).css('background-color', 'white');
+
+		    },
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,basicWeek,basicDay'
+			},
+			defaultDate: '2014-09-12',
+			lang: 'pt-br',
+			editable: true,
+			eventLimit: true, // allow "more" link when too many events
+			events: [
+				
+
+			]
+		});
+
+		$("#form input").each(function(){
+	        $(this).attr("readonly","readonly");
+	    });
+	    $('#aula_backendbundle_schedule_classAt_date').datetimepicker({
+	        format: "Y-m-d",
+	        timepicker: false,
+	        datepicker: true,
+	    });
+	    $('#aula_backendbundle_schedule_classAt_time').datetimepicker({
+	        format: "H:i",
+	        timepicker: true,
+	        datepicker: false,
+	        step:5
+	    });
+		
+	});
+
+</script>
+
+
+
 <div class="row">
 	<div class="twelvecol column ">
     <h3>Agendar</h3>
 
+    <div id="calendar"></div>
+
     <form action="{{ path('schedule_create') }}" id="form" {{ form_enctype(form) }} method="POST" class="new_entity_factories_free_entity_factory" novalidate>
 	    	{{ form_errors(form) }}
 	    	{{ form_row(form._token) }} 
+	    	{{ form_row(form.teacherId) }} 
 	 
 		    <div class="inputLabel">
 		    	
@@ -19,6 +87,8 @@
 		    	{% endif %}
 			</div>
 			<button type="submit">Agendar</button>
+
+
 
 </ul>
 </div>

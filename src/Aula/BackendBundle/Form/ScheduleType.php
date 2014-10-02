@@ -19,8 +19,10 @@ class ScheduleType extends AbstractType
             //->add('studentId')
             //->add('status')
             ->add('classAt', 'datetime', array(
-                'years' => range(date('Y'), date('Y')+5), 
+                'years' => range(date('Y'), date('Y')+1), 
                 'label' => 'Data'))
+            ->add('classAt', 'datetime', array('date_widget' => "single_text", 'time_widget' => "single_text"));
+
             //->add('createdAt')
             //->add('updatedAt')
         ;

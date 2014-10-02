@@ -11,12 +11,16 @@
 			Sua solicitação foi recusada!
 		{% elseif schedule.status == 10 %}
 			
-			{% if "now"|date('d/m/Y') == schedule.classAt|date('d/m/Y' ) %}
+			{% if "now"|date('d/m/Y') == schedule.classAt|date('d/m/Y') %}
 			Solicitação aceita!<br />
 			<a href="{{ path('aula_redir', { 'id': schedule.id }) }}" class="button medium price-button left">Iniciar Aula</a><br />
-			{% else %}
+			{% elseif "now"|date('d/m/Y') > schedule.classAt|date('d/m/Y') %}
 				Aula expirada!<br /> 
 				Favor reagendar com seu professor.
+			{% else %}
+				Solicitação aceita!<br />
+
+				Aguarde o dia para poder ter sua aula!
 			{% endif %}
 		{% elseif schedule.status == 100 %}
 			Aula finalizada com sucesso!<br />
@@ -39,10 +43,20 @@
 		{% if schedule.status == -1 %}
 			<a href="{{ path('aula_frontend_accept', { 'id': schedule.id, 'accept': 1 } ) }}">Aceitar</a> | <a href="{{ path('aula_frontend_accept', { 'id': schedule.id, 'accept': 0 } ) }}">Recusar</a>
 		{% elseif schedule.status == -10 %}
-			Solicitação recusada!
+			Sua solicitação foi recusada!
 		{% elseif schedule.status == 10 %}
-			Solicitação aceita! <br />
-			<a href="http://162.248.161.219/" class="button medium price-button left">Iniciar Aula</a><br /><br />
+			{% if "now"|date('d/m/Y') == schedule.classAt|date('d/m/Y') %}
+			Solicitação aceita!<br />
+			<a href="{{ path('aula_redir', { 'id': schedule.id }) }}" class="button medium price-button left">Iniciar Aula</a><br />
+			{% elseif "now"|date('d/m/Y') > schedule.classAt|date('d/m/Y') %}
+				Aula expirada!<br /> 
+			{% else %}
+				Solicitação aceita!<br />
+
+				Aguarde o dia para poder dar sua aula!
+			{% endif %}
+		{% elseif schedule.status == 100 %}
+			Aula finalizada com sucesso!<br />			
 		{% endif %}
 		</p>
 

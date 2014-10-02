@@ -38,8 +38,6 @@ class ScheduleController extends Controller
     {
         
         $entity = new Schedule();
-        //echo "<pre>";
-        //var_dump($_POST['aula_backendbundle_schedule']['teacherId']);exit;
 
         $em = $this->getDoctrine()->getManager();
 
