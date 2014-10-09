@@ -17,6 +17,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Aula\BackendBundle\Form\UserType;
 use Aula\FrontendBundle\Form\MyGradeType;
 use Aula\BackendBundle\Entity\User;
+use Aula\FrontendBundle\Vline\Vline;
 
 class DefaultController extends Controller
 {
@@ -218,6 +219,14 @@ class DefaultController extends Controller
             'user' => $user
             ));
     }
+
+    public function startClassAction() {
+        $vline = new Vline();
+        $vline->setUser(2, 'teste');
+        $vline->init();
+        return $this->render('AulaFrontendBundle:Default:start-class-test.html.twig', array('vline' => $vline));
+    }
+
 
 
 }

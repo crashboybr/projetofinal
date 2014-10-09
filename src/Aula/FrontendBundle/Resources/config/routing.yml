@@ -37,3 +37,7 @@ aula_frontend_accept:
 AulaBackendBundle_rating:
         resource: "@AulaBackendBundle/Resources/config/routing/rating.yml"
         prefix:   /avaliar
+
+aula_start:
+    path:     /iniciar-aula
+    defaults: { _controller: AulaFrontendBundle:Default:startClass }
