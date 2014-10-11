@@ -53,7 +53,7 @@
 
 						Solicitação aceita! <br />
 						Data: {{ schedule.classAt|date('d/m/Y h:m') }}<br />
-						<a href="{{ path('aula_start', { 'id': schedule.id }) }}" class="button medium price-button left">Iniciar Aula</a>
+						<a href="{{ path('aula_start', { 'class': schedule.id }) }}" class="button medium price-button left">Iniciar Aula</a>
 					{% else %}
 						<form action="{{ path('schedule_new') }}" method="POST">
 							<a href="#" class="button medium price-button submit-button left">		

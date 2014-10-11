@@ -13,7 +13,7 @@
 			
 			{% if "now"|date('d/m/Y') == schedule.classAt|date('d/m/Y') %}
 			Solicitação aceita!<br />
-			<a href="{{ path('aula_start', { 'id': schedule.id }) }}" class="button medium price-button left">Iniciar Aula</a><br />
+			<a href="{{ path('aula_start', { 'class': schedule.id }) }}" class="button medium price-button left">Iniciar Aula</a><br />
 			{% elseif "now"|date('d/m/Y') > schedule.classAt|date('d/m/Y') %}
 				Aula expirada!<br /> 
 				Favor reagendar com seu professor.
@@ -47,7 +47,7 @@
 		{% elseif schedule.status == "accepted" %}
 			{% if "now"|date('d/m/Y') == schedule.classAt|date('d/m/Y') %}
 			Solicitação aceita!<br />
-			<a href="{{ path('aula_start', { 'id': schedule.id }) }}" class="button medium price-button left">Iniciar Aula</a><br />
+			<a href="{{ path('aula_start', { 'class': schedule.id }) }}" class="button medium price-button left">Iniciar Aula</a><br />
 			{% elseif "now"|date('d/m/Y') > schedule.classAt|date('d/m/Y') %}
 				Aula expirada!<br /> 
 			{% else %}
