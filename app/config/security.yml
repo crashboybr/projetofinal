@@ -24,6 +24,7 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/agendar, role: ROLE_USER }
+        - { path: ^/iniciar-aula, role: ROLE_USER }
         #- { path: ^/admin/, role: ROLE_ADMIN }
 
 #    providers:

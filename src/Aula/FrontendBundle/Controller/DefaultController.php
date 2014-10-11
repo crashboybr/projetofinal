@@ -17,6 +17,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Aula\BackendBundle\Form\UserType;
 use Aula\FrontendBundle\Form\MyGradeType;
 use Aula\BackendBundle\Entity\User;
+use Aula\BackendBundle\Entity\Schedule;
 use Aula\FrontendBundle\Vline\Vline;
 
 class DefaultController extends Controller
@@ -113,7 +114,7 @@ class DefaultController extends Controller
             $qb = $repository->createQueryBuilder('u');
             
             $qb->where('u.status != :status AND u.teacherId = :teacher_id AND u.studentId = :student_id')
-               ->setParameter('status', -10)
+               ->setParameter('status', "refused")
                ->setParameter('teacher_id', $id)
                ->setParameter('student_id', $user->getId());
             $qb->setMaxResults(1);
@@ -175,7 +176,7 @@ class DefaultController extends Controller
         
         $schedule = $em->getRepository('AulaBackendBundle:Schedule')->find($id);
 
-        $schedule->setStatus(100);
+        $schedule->setStatus("started");
         $em->persist($schedule);
         $em->flush();
         
@@ -191,9 +192,9 @@ class DefaultController extends Controller
         $schedule = $em->getRepository('AulaBackendBundle:Schedule')->find($id);
 
         if ($accept)
-            $schedule->setStatus(10);
+            $schedule->setStatus("accepted");
         else 
-            $schedule->setStatus(-10);
+            $schedule->setStatus("refused");
 
         $em->persist($schedule);
         $em->flush();
@@ -209,7 +210,7 @@ class DefaultController extends Controller
         
         if ($user->getType() == 'professor')
             $schedules = $em->getRepository('AulaBackendBundle:Schedule')->findBy(
-                array('teacherId' => $user->getId(), 'status' => 10)
+                array('teacherId' => $user->getId(), 'status' => "accepted")
                 );
         else
             $schedules = $em->getRepository('AulaBackendBundle:Schedule')->findBy(array('studentId' => $user->getId()));
@@ -220,11 +221,28 @@ class DefaultController extends Controller
             ));
     }
 
-    public function startClassAction() {
+    public function startClassAction(Schedule $class) {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $class->setStatus("started");
+        $em->persist($class);
+        $em->flush();
+        
+        $me = $this->getUser();
+        
+        if ($me->getType() == 'aluno') {
+            $remote_user = $class->getTeacher();
+        }
+        else {
+            $remote_user = $class->getStudent();
+        }
+        
         $vline = new Vline();
-        $vline->setUser(2, 'teste');
+        $vline->setUser($me->getId(), $me->getName());
         $vline->init();
-        return $this->render('AulaFrontendBundle:Default:start-class-test.html.twig', array('vline' => $vline));
+        return $this->render('AulaFrontendBundle:Default:start-class-test.html.twig', 
+            array('vline' => $vline, 'remote_user' => $remote_user, 'me' => $me, 'class' => $class));
     }
 
 

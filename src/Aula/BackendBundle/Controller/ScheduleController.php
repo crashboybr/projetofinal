@@ -47,12 +47,26 @@ class ScheduleController extends Controller
         
         $student = $this->getUser();
         $entity->setStudent($student);
-        $entity->setStatus(-1);
+        $entity->setStatus("waiting");
         $form = $this->createCreateForm($entity);
 
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            $url = 'https://www.twiddla.com/API/CreateMeeting.aspx';
+            $data = array('username' => 'balves', 'password' => 'dyd6cof2');
+
+            // use key 'http' even if you send the request to https://...
+            $options = array(
+                'http' => array(
+                    'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                    'method'  => 'POST',
+                    'content' => http_build_query($data),
+                ),
+            );
+            $context  = stream_context_create($options);
+            $result = file_get_contents($url, false, $context);
+            $entity->setWhiteboardId($result);
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();

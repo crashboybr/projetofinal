@@ -20,7 +20,7 @@ class Schedule
 {
     public function __construct()
     {
-        parent::__construct();
+        //parent::__construct();
         $this->schedules_rating = new ArrayCollection();
        
     }
@@ -93,6 +93,13 @@ class Schedule
      * @ORM\Column(name="updated_at", type="datetime")
      */
     private $updatedAt;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="whiteboard_id", type="integer", nullable=true)
+     */
+    private $whiteboardId;
 
 
     /**
@@ -304,5 +311,38 @@ class Schedule
     public function getStudent()
     {
         return $this->student;
+    }
+
+    /**
+     * Add schedules_rating
+     *
+     * @param \Aula\BackendBundle\Entity\Rating $schedulesRating
+     * @return Schedule
+     */
+    public function addSchedulesRating(\Aula\BackendBundle\Entity\Rating $schedulesRating)
+    {
+        $this->schedules_rating[] = $schedulesRating;
+
+        return $this;
+    }
+
+    /**
+     * Remove schedules_rating
+     *
+     * @param \Aula\BackendBundle\Entity\Rating $schedulesRating
+     */
+    public function removeSchedulesRating(\Aula\BackendBundle\Entity\Rating $schedulesRating)
+    {
+        $this->schedules_rating->removeElement($schedulesRating);
+    }
+
+    /**
+     * Get schedules_rating
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSchedulesRating()
+    {
+        return $this->schedules_rating;
     }
 }

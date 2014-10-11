@@ -14,9 +14,6 @@ aula_frontend_classes:
     path:     /aulas
     defaults: { _controller: AulaFrontendBundle:Default:classes }
 
-aula_redir:
-    path:     /redir/{id}
-    defaults: { _controller: AulaFrontendBundle:Default:redirClass }
 
 aula_frontend_view_teacher:
     path:     /professor/{id}
@@ -39,5 +36,5 @@ AulaBackendBundle_rating:
         prefix:   /avaliar
 
 aula_start:
-    path:     /iniciar-aula
+    path:     /iniciar-aula/{class}
     defaults: { _controller: AulaFrontendBundle:Default:startClass }

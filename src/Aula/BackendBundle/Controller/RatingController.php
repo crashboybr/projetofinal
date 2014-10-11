@@ -104,6 +104,15 @@ class RatingController extends Controller
         $form->add('class_id', 'hidden', array('data' => $class->getId()));
         $form->add('student_id', 'hidden', array('data' => $this->getUser()->getId()));
 
+        $em = $this->getDoctrine()->getManager();
+        //echo "<pre>";
+        $user = $this->getUser();
+        
+        $class->setStatus("finished");
+        $em->persist($class);
+        $em->flush();
+        
+
         return $this->render('AulaBackendBundle:Rating:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),

@@ -69,7 +69,7 @@ class Schedule
     /**
      * @var integer
      *
-     * @ORM\Column(name="status", type="integer")
+     * @ORM\Column(name="status", type="text", length=100)
      */
     private $status;
 
@@ -93,6 +93,13 @@ class Schedule
      * @ORM\Column(name="updated_at", type="datetime")
      */
     private $updatedAt;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="whiteboard_id", type="integer", nullable=true)
+     */
+    private $whiteboardId;
 
 
     /**
@@ -337,5 +344,28 @@ class Schedule
     public function getSchedulesRating()
     {
         return $this->schedules_rating;
+    }
+
+    /**
+     * Set whiteboardId
+     *
+     * @param integer $whiteboardId
+     * @return Schedule
+     */
+    public function setWhiteboardId($whiteboardId)
+    {
+        $this->whiteboardId = $whiteboardId;
+
+        return $this;
+    }
+
+    /**
+     * Get whiteboardId
+     *
+     * @return integer 
+     */
+    public function getWhiteboardId()
+    {
+        return $this->whiteboardId;
     }
 }

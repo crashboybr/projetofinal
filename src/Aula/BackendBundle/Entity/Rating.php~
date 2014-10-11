@@ -18,6 +18,9 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Rating
 {
+
+
+
     /**
      * @var integer
      *
@@ -326,5 +329,28 @@ class Rating
     public function getStudent()
     {
         return $this->student;
+    }
+
+    /**
+     * Set schedule
+     *
+     * @param \Aula\BackendBundle\Entity\Schedule $schedule
+     * @return Rating
+     */
+    public function setSchedule(\Aula\BackendBundle\Entity\Schedule $schedule = null)
+    {
+        $this->schedule = $schedule;
+
+        return $this;
+    }
+
+    /**
+     * Get schedule
+     *
+     * @return \Aula\BackendBundle\Entity\Schedule 
+     */
+    public function getSchedule()
+    {
+        return $this->schedule;
     }
 }

@@ -5,15 +5,15 @@
 		<p>Matéria: {{ schedule.teacher.grade.name }}</p>
 		<p>Data: {{ schedule.classAt|date('d/m/Y h:m' )}}</p>
 		<p>Status: 
-		{% if schedule.status == -1 %}
+		{% if schedule.status == "waiting" %}
 			Aguardando resposta do professor
-		{% elseif schedule.status == -10 %}
+		{% elseif schedule.status == "refused" %}
 			Sua solicitação foi recusada!
-		{% elseif schedule.status == 10 %}
+		{% elseif schedule.status == "accepted" %}
 			
 			{% if "now"|date('d/m/Y') == schedule.classAt|date('d/m/Y') %}
 			Solicitação aceita!<br />
-			<a href="{{ path('aula_redir', { 'id': schedule.id }) }}" class="button medium price-button left">Iniciar Aula</a><br />
+			<a href="{{ path('aula_start', { 'id': schedule.id }) }}" class="button medium price-button left">Iniciar Aula</a><br />
 			{% elseif "now"|date('d/m/Y') > schedule.classAt|date('d/m/Y') %}
 				Aula expirada!<br /> 
 				Favor reagendar com seu professor.
@@ -22,7 +22,7 @@
 
 				Aguarde o dia para poder ter sua aula!
 			{% endif %}
-		{% elseif schedule.status == 100 %}
+		{% elseif schedule.status == "finished" %}
 			Aula finalizada com sucesso!<br />
 			<a href="{{ path('rating_new', { 'teacher': schedule.teacher.id, 'class': schedule.id }) }}" class="button medium price-button left">Avaliar Aula</a><br />
 			
@@ -40,14 +40,14 @@
 		<p>Aluno: {{ schedule.student.name }}</p>
 		<p>Data: {{ schedule.classAt|date('d/m/Y h:m' )}}</p>
 		<p>Status: 
-		{% if schedule.status == -1 %}
+		{% if schedule.status == "waiting" %}
 			<a href="{{ path('aula_frontend_accept', { 'id': schedule.id, 'accept': 1 } ) }}">Aceitar</a> | <a href="{{ path('aula_frontend_accept', { 'id': schedule.id, 'accept': 0 } ) }}">Recusar</a>
-		{% elseif schedule.status == -10 %}
+		{% elseif schedule.status == "refused" %}
 			Sua solicitação foi recusada!
-		{% elseif schedule.status == 10 %}
+		{% elseif schedule.status == "accepted" %}
 			{% if "now"|date('d/m/Y') == schedule.classAt|date('d/m/Y') %}
 			Solicitação aceita!<br />
-			<a href="{{ path('aula_redir', { 'id': schedule.id }) }}" class="button medium price-button left">Iniciar Aula</a><br />
+			<a href="{{ path('aula_start', { 'id': schedule.id }) }}" class="button medium price-button left">Iniciar Aula</a><br />
 			{% elseif "now"|date('d/m/Y') > schedule.classAt|date('d/m/Y') %}
 				Aula expirada!<br /> 
 			{% else %}
@@ -55,7 +55,7 @@
 
 				Aguarde o dia para poder dar sua aula!
 			{% endif %}
-		{% elseif schedule.status == 100 %}
+		{% elseif schedule.status == "finished" %}
 			Aula finalizada com sucesso!<br />			
 		{% endif %}
 		</p>
